@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+   <meta name="viewport" content="with=device-width,initial-scale=1,shrink-to-fit=no">
+  <title>ITSA</title>
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/estilos.css">
+   </head>
+
+     <body>
+ <section id="cover">
+     <div class="container-fluid">
+       <div class="row">
+         <div class="col-sm-12">
+         </div>
+       </div>
+     </div>
+ </section>
+
+    <div class="container">
+      <h1 class="display3">ENCUESTA SOBRE TÉCNICAS DE ESTUDIO.</h1><br>
+      <h4>Instrucciones:</h4>
+
+    <div class="row align-items-center">
+    <div class="col-sm-12 col-sm-12 col-md 4">
+      <p>
+        Lee cada una de las preguntas. Si contestas todas las preguntas con sinceridad y reflexión podrás identificar mucho de tus actuales defectos al estudiar.
+        Según corresponda tu respuesta a <strong>si </strong>o <strong> no</strong>. No hay respuestas "correctas" o "incorrectas", ya que la contestación adecuada es tu juicio sincero sobre tu modo de actuar y tus actitudes personales, respecto al estudio.
+     </p>
+    </div>
+  </div>
+</div>
+<br><br>
+
+ <section id="tets">
+   <div class="container">
+    <form action="../Modelo/reshabestu2.php" method="POST" id="formulario">
+      <a class="lead">A.- ¿Tiendes a comenzar la lectura de un libro de texto sin hojear previamente los subtítulos y las ilustraciones?</a><br>
+      <div class="custom-control custom-radio">
+    <select name="radio1" id="radio1" required="">
+      <option value=""></option>
+          <option value="SI">SI</option>
+          <option value="NO">NO</option>
+        </select>
+  </div>
+  <br>
+      <a class="lead">B.- ¿Te saltas por lo general las figuras, gráficas y tablas cuando estudias un tema?</a><br>
+ <div class="custom-control custom-radio">
+    <select name="radio2" id="radio2" required="">
+      <option value=""></option>
+          <option value="SI">SI</option>
+          <option value="NO">NO</option>
+        </select>
+  </div>
+  <br>
+      <a class="lead">C.- ¿Suelo serte difícil seleccionar los puntos de los temas de estudio?</a><br>
+         <div class="custom-control custom-radio">
+    <select name="radio3" id="radio3" required="">
+      <option value=""></option>
+          <option value="SI">SI</option>
+          <option value="NO">NO</option>
+        </select>
+  </div><br>  
+      <a class="lead">D.- ¿Te sorprendes con cierta frecuencia, pensando en algo que no tiene nada que ver con lo que estudias?</a><br>
+      <div class="custom-control custom-radio">
+    <select name="radio4" id="radio4" required="">
+      <option value=""></option>
+          <option value="SI">SI</option>
+          <option value="NO">NO</option>
+        </select>
+  </div>
+  <br>
+      <a class="lead">E.- ¿Sueles tener dificultad en entender tus apuntes de clase cuando tratas de repasarlos, después de cierto tiempo?</a><br>
+      <div class="custom-control custom-radio">
+    <select name="radio5" id="radio5" required="">
+      <option value=""></option>
+          <option value="SI">SI</option>
+          <option value="NO">NO</option>
+        </select>
+  </div>
+  <br>
+      <a class="lead">F.- Al tomar notas, ¿te sueles quedar atrás con frecuencia debido a que no puedes escribir con suficiente rapidez?</a><br>
+      <div class="custom-control custom-radio">
+    <select name="radio6" id="radio6" required="">
+      <option value=""></option>
+          <option value="SI">SI</option>
+          <option value="NO">NO</option>
+        </select>
+  </div>
+  <br>
+      <a class="lead">G.- Poco después de comenzar un curso, ¿sueles encontrarte con tus apuntes formando un “revoltijo"?</a><br>
+      <div class="custom-control custom-radio">
+        <select name="radio7" id="radio7" required="">
+      <option value=""></option>
+          <option value="SI">SI</option>
+          <option value="NO">NO</option>
+        </select>
+  </div>
+  <br>
+       <a  class="lead">H.- ¿Tomas normalmente tus apuntes tratando de escribir las palabras exactas del docente?</a><br>
+       <div class="custom-control custom-radio">
+        <select name="radio8" id="radio8" required="">
+      <option value=""></option>
+          <option value="SI">SI</option>
+          <option value="NO">NO</option>
+        </select>
+  </div>
+  <br>
+       <a  class="lead">I.- Cuando tomas notas de un libro, ¿tienes la costumbre de copiar el material necesario, palabra por Palabra?</a><br>
+       <div class="custom-control custom-radio">
+        <select name="radio9" id="radio9" required="">
+      <option value=""></option>
+          <option value="SI">SI</option>
+          <option value="NO">NO</option>
+        </select>
+  </div>
+  <br>
+       <a class="lead">J.- ¿Te es difícil preparar un temario apropiado para una evaluación?</a><br>
+       <div class="custom-control custom-radio">
+    <select name="radio10" id="radio10" required="">
+      <option value=""></option>
+          <option value="SI">SI</option>
+          <option value="NO">NO</option>
+        </select>
+  </div>
+  <br>
+   <a class="lead">K.- ¿Tienes problemas para organizar los datos o el contenido de una evaluación?<a><br>
+       <div class="custom-control custom-radio">
+    <select name="radio11" id="radio11" required="">
+      <option value=""></option>
+          <option value="SI">SI</option>
+          <option value="NO">NO</option>
+        </select>
+  </div>
+  <br>
+  <a class="lead">L.- ¿Al repasar el temario de una evaluación formulas un resumen de este?</a><br>
+       <div class="custom-control custom-radio">
+    <select name="radio12" id="radio12" required="">
+      <option value=""></option>
+          <option value="SI">SI</option>
+          <option value="NO">NO</option>
+        </select>
+  </div>
+  <br>
+  <a class="lead">M.- ¿Te preparas a veces para un evaluación memorizando fórmulas, definiciones o reglas que no entiendes con claridad?</a><br>
+       <div class="custom-control custom-radio">
+    <select name="radio13" id="radio13" required="">
+      <option value=""></option>
+          <option value="SI">SI</option>
+          <option value="NO">NO</option>
+        </select>
+  </div>
+  <br>
+  <a class="lead">N.- ¿Te resulta difícil decidir qué estudiar y cómo estudiarlo cuando preparas una evaluación?</a><br>
+       <div class="custom-control custom-radio">
+   <select name="radio14" id="radio14" required="">
+      <option value=""></option>
+          <option value="SI">SI</option>
+          <option value="NO">NO</option>
+        </select>
+  </div>
+  <br>
+  <a class="lead">O.- ¿Sueles tener dificultades para organizar, en un orden lógico, las asignaturas que debes estudiar por temas?</a><br>
+       <div class="custom-control custom-radio">
+    <select name="radio15" id="radio15" required="">
+      <option value=""></option>
+          <option value="SI">SI</option>
+          <option value="NO">NO</option>
+        </select>
+  </div>
+  <br>
+  <a class="lead">P.- Al preparar evaluación, ¿sueles estudiar toda la asignatura, en el último momento?</a><br>
+       <div class="custom-control custom-radio">
+    <select name="radio16" id="radio16" required="">
+      <option value=""></option>
+          <option value="SI">SI</option>
+          <option value="NO">NO</option>
+        </select>
+  </div>
+  <br>
+  <a class="lead">Q.- ¿Sueles entregar tus exámenes sin revisarlos detenidamente, para ver si tienen algún error cometido por descuido?</a><br>
+       <div class="custom-control custom-radio">
+    <select name="radio17" id="radio17" required="">
+      <option value=""></option>
+          <option value="SI">SI</option>
+          <option value="NO">NO</option>
+        </select>
+  </div>
+  <br>
+  <a class="lead">R.- ¿Te es posible con frecuencia terminar una evaluación de exposición de un tema en el tiempo prescrito?</a><br>
+       <div class="custom-control custom-radio">
+    <select name="radio18" id="radio18" required="">
+      <option value=""></option>
+          <option value="SI">SI</option>
+          <option value="NO">NO</option>
+        </select>
+  </div>
+  <br>
+  <a class="lead">S.- ¿Sueles perder puntos en exámenes con preguntas de “Verdadero - falso", debido a que no lees detenidamente?</a><br>
+       <div class="custom-control custom-radio">
+   <select name="radio19" id="radio19" required="">
+      <option value=""></option>
+          <option value="SI">SI</option>
+          <option value="NO">NO</option>
+        </select>
+  </div>
+  <br>
+  <a class="lead">T.- ¿Empleas normalmente mucho tiempo en contestar la primera mitad de la prueba y tienes que apresurarte en la segunda?</a><br>
+       <div class="custom-control custom-radio">
+    <select name="radio20" id="radio20" required="">
+      <option value=""></option>
+          <option value="SI">SI</option>
+          <option value="NO">NO</option>
+        </select>
+  </div>
+  <br>
+  <br>
+   <div class="form-group col-lg-3 offset-5">
+          
+          <button  id="btnenviar" type="submit" class="form-control btn-success">Enviar</button>
+        </div>   
+        <div class="form-group col-lg-3 offset-5">
+          <button  id="btncancel" class="form-control btn-danger">Cancelar</button>
+        </div>     
+</form>
+</div>
+</section>
+
+
+     </body>
+
+  <script src="../js/bootstrap.min.js"></script><!--librerias-->
+  <script src="../js/jquery.validate.min.js"></script>
+  <script src="../js/jqBootstrapValidation.js"></script> 
+  <script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="../js/bootstrap.bundle.min.js"></script>
+  <script type="text/javascript" src="../js/popper.min.js"></script> 
+<script>
+
+    $(function(){
+
+      $("#btncancel").click(function(){        
+          window.location="../Vista/menualum.html";
+          });   
+    });
+      </script>

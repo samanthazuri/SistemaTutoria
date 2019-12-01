@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+		<link href="https://fonts.googleapis.com/css?family=Francois+One" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="../css/datatables.min.css">
+  		<link rel="stylesheet" href="../css/bootstrap.min.css">
+  		<link rel="stylesheet" href="../css/estilos.css">
+		<meta charset="UTF-8">
+	<title>Actividades</title>
+
+</head>
+
+<style>
+	tbody
+	{
+		background-color: #fff;
+	}
+
+        #dt_Alumnos
+        {
+            width: 100% !important;
+        }
+        
+        #dt_Alumnos_wrapper
+        {
+            width: 100%;
+        }
+        
+        #dt_Alumnoss th
+        {
+            width: 2%;
+            
+        }
+        .inpTutorados
+        {
+            width: 100%;
+            font-size: 12px;
+        }
+
+    
+</style>
+<body>
+	<div class="container">
+		<h1 class="text-center">ALUMNOS ACTIVIDADES</h1>
+		<div class="row">
+			<!--class="table table-responsive table-sm table-hover"-->
+			<!--<div class="table-responsive col-sm-12">		-->
+				<table id="dt_Alumnos" class="table table-responsive table-sm table-hover" style="background-color: #73b1dd">
+					<thead >
+						<tr>								
+							<th >Matricula</th>
+                            <th >Nombre</th>
+                            <th >Apellidos</th>
+                            <th >Carrera</th>
+                            <th >Semestre</th>
+                            <th >Actividad</th>
+                            <th></th>
+                            											
+						</tr>
+					</thead>
+					<thead  class="filters_Alumnos">
+						<tr>								
+							<th >Matricula</th>
+                            <th >Nombre</th>
+                            <th >Apellidos</th>
+                            <th >Carrera</th>
+                            <th >Semestre</th>
+                            <th >Actividad</th>
+                            <th></th>
+                            											
+						</tr>
+					</thead>
+					<!--
+						"matricula" => $row['matricula'], 
+				"nombre_s" => $row['nombre_s'], 
+				"apellidos"=> $row['ap_pat']." ".$row['ap_mat'],
+				"cve_div"=> $row['cve_div'],
+				"semestre"=> $row['semestre'],
+				"nom_act"=>$ActvidadF
+					<thead class="filters_Alumnos" style="background-color: #73b1dd">
+                         <tr>
+                            <th scope="col">Matricula</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Apellidos</th>
+                            <th scope="col">Carrera</th>
+                            <th scope="col">Semestre</th>
+                            <th scope="col">Actividad</th>
+                            <th scope="col"></th>
+                         </tr>
+                     </thead>-->				
+				</table>
+			<!--</div>				-->
+		</div>
+	</div>
+	
+</body>
+
+<script type="text/javascript" src="../js/popper.min.js"></script> 
+<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+<script src="../js/datatables.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<!--<script type="text/javascript" src="../js/bootstrap.bundle.min.js"></script>-->
+
+
+<script>
+	$(document).ready(function(){
+			listar();
+			
+		
+		});
+//var dt;
+	var listar = function(){
+		$.ajax({
+				url: "../Modelo/listar.php",
+				type: "POST",
+				dataType: "json",
+				success: function(dato){
+					//alert("response");
+					console.log(dato);
+					//dt = dato;
+
+					var table = $("#dt_Alumnos").DataTable({
+						destroy: true,
+						data: dato,
+						columns: [
+							{"data": "matricula"},
+							{"data": "nombre_s"},
+							{"data": "apellidos"},
+							{"data": "cve_div"},
+							{"data": "semestre"},
+							{"data": "nom_act"},
+							{"defaultContent": "<button type='button' class='btn btn-success btn-sm aprobar'>Aprobar</button>	<button type='button' class='btn btn-danger btn-sm reprobar'>Reprobar</button>"}
+						]
+
+					});
+
+					formato_datatable();
+ 
+					$('#dt_Alumnos tbody').on( 'click', '.aprobar', function () {
+    					table
+        					.row( $(this).parents('tr') )
+        					.remove()
+        					.draw();
+					} );
+					
+				}
+			});
+
+		
+	}
+
+	var aprobar = function(table, tbody){
+		$(tbody).on("click",".aprobar", function(){
+			//var data = table.row( $(this).parents("tr") ).data();
+			//var idAlumno = data.matricula;
+			alert("idAlumno");
+		});
+	}
+
+		var formato_datatable = function(){
+		$('#dt_Alumnos .filters_Alumnos th').each( function () {
+                    	var title = $('#dt_Alumnos thead th').eq( $(this).index() ).text();
+                    	if( title != ""){
+                    		$(this).html( '<input class="inpTutorados" type="text" placeholder="Buscaraa" />' );
+                    		}
+                    
+                	});
+
+
+                	var table = $('#dt_Alumnos').DataTable();
+ 
+                    // Apply the search
+                table.columns().eq( 0 ).each( function ( colIdx ) {
+                    $( 'input', $('.filters_Alumnos th')[colIdx] ).on( 'keyup change', function () {
+                       table
+                            .column( colIdx )
+                            .search( this.value )
+                            .draw();
+                    });
+                });
+
+                $("#dt_Alumnos_filter").addClass("d-none");
+	}
+
+	/*var listar = function (){
+			var table = $("#dt_Alumnos").DataTable({
+				ajax: {
+					url: "../Modelo/listar.php",
+					data: "POST",
+					dataType: "json",
+
+				},
+				columns: [
+						{"data": "matricula"},
+						{"data": "nombre_s"},
+						{"data": "apellidos"},
+						{"data": "cve_div"},
+						{"data": "semestre"},
+						{"data": "nom_act"}
+				]
+			});
+			
+			//getDatos("#dt_cliente tbody",table);
+		}*/
+</script>
+
+</html>

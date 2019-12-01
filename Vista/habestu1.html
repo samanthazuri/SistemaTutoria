@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+   <meta name="viewport" content="with=device-width,initial-scale=1,shrink-to-fit=no">
+  <title>ITSA</title>
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/estilos.css">
+   </head>
+
+     <body>
+ <section id="cover">
+     <div class="container-fluid">
+       <div class="row">
+         <div class="col-sm-12">
+         </div>
+       </div>
+     </div>
+ </section>
+
+    <div class="container">
+      <h1 class="display3">ENCUESTA PARA ORGANIZACIÓN DEL ESTUDIO.</h1><br>
+      <h4>Instrucciones:</h4>
+
+    <div class="row align-items-center">
+    <div class="col-sm-12 col-sm-12 col-md 4">
+      <p>
+        Lee cada una de las preguntas. Si contestas todas las preguntas con sinceridad y reflexión podrás identificar mucho de tus actuales defectos al estudiar.
+        Según corresponda tu respuesta a <strong>si </strong>o <strong> no</strong>. No hay respuestas "correctas" o "incorrectas", ya que la contestación adecuada es tu juicio sincero sobre tu modo de actuar y tus actitudes personales, respecto al estudio.
+     </p>
+    </div>
+  </div>
+</div>
+<br><br>
+
+ <section id="tets">
+   <div class="container">
+    <form action="../Modelo/reshabestu1.php" method="POST" id="formulario">
+      <a class="lead">A.- ¿Sueles dejar para el último la preparación de tus trabajos?</a><br>
+  <div class="custom-control custom-radio">
+        <select name="radio1" id="radio1" required="">
+          <option value=""></option>
+          <option value="SI">SI</option>
+          <option value="NO">NO</option>
+        </select>
+  </div>
+  <br>
+      <a class="lead">B.- ¿Crees que el sueño o el cansancio te impidan estudiar eficazmente en muchas ocasiones?</a><br>
+ <div class="custom-control custom-radio">
+    <select name="radio2" id="radio2"  required="">
+      <option value=""></option>
+          <option value="SI">SI</option>
+          <option value="NO">NO</option>
+        </select>
+  </div><br>
+      <a class="lead">C.- ¿Es frecuente que no termines tu tarea a tiempo?</a><br>
+         <div class="custom-control custom-radio">
+    <select name="radio3" id="radio3" required="">
+      <option value=""></option>
+          <option value="SI">SI</option>
+          <option value="NO">NO</option>
+        </select>
+  </div><br>  
+      <a class="lead">D.- ¿Tiendes a emplear tiempo en leer revistas, ver televisión o charlar cuando debieras dedicarlos a estudiar?</a><br>
+      <div class="custom-control custom-radio">
+    <select name="radio4" id="radio4" required="">
+      <option value=""></option>
+          <option value="SI">SI</option>
+          <option value="NO">NO</option>
+        </select>
+  </div>
+  <br>
+      <a class="lead">E.- Tus actividades sociales o deportivas. ¿te llevan a descuidar, a menudo, tus tareas escolares?</a><br>
+      <div class="custom-control custom-radio">
+    <select name="radio5" id="radio5" required="">
+      <option value=""></option>
+          <option value="SI">SI</option>
+          <option value="NO">NO</option>
+        </select>
+  </div>
+  <br>
+      <a class="lead">F.- ¿Sueles dejar pasar un día o más antes de repasarlos apuntes tomados en clase?</a><br>
+      <div class="custom-control custom-radio">
+    <select name="radio6" id="radio6" required="">
+      <option value=""></option>
+          <option value="SI">SI</option>
+          <option value="NO">NO</option>
+        </select>
+  </div>
+  <br>
+      <a class="lead">G.- ¿Sueles dedicar tu tiempo libre entre las 4:00 de la tarde y las 9:00 de la noche a otras actividades que no sean estudiar?</a><br>
+      <div class="custom-control custom-radio">
+        <select name="radio7" id="radio7" required="">
+          <option value=""></option>
+          <option value="SI">SI</option>
+          <option value="NO">NO</option>
+        </select>
+  </div>
+  <br>
+       <a  class="lead">H.- ¿Descubres algunas veces de pronto, que debes entregar una tarea antes de lo que creías?</a><br>
+       <div class="custom-control custom-radio">
+        <select name="radio8" id="radio8" required="">
+          <option value=""></option>
+          <option value="SI">SI</option>
+          <option value="NO">NO</option>
+        </select>
+  </div>
+  <br>
+       <a  class="lead">I.- ¿Te retrasas, con frecuencia, en una asignatura debido a que tienes que estudiar otra? </a><br>
+       <div class="custom-control custom-radio">
+        <select name="radio9" id="radio9" required="">
+          <option value=""></option>
+          <option value="SI">SI</option>
+          <option value="NO">NO</option>
+        </select>
+  </div>
+  <br>
+       <a class="lead">J.- ¿Te parece que tu rendimiento es muy bajo, en relación con el tiempo que dedicas al estudio?a><br>
+       <div class="custom-control custom-radio">
+    <select name="radio10" id="radio10" required="">
+      <option value=""></option>
+          <option value="SI">SI</option>
+          <option value="NO">NO</option>
+        </select>
+  </div>
+  <br>
+   <a class="lead">K.- ¿Está situado tu escritorio directamente frente a una ventana, puerta u otra fuente de distracción?a><br>
+       <div class="custom-control custom-radio">
+    <select name="radio11" id="radio11" required="">
+      <option value=""></option>
+          <option value="SI">SI</option>
+          <option value="NO">NO</option>
+        </select>
+  </div>
+  <br>
+  <a class="lead">L.- ¿Sueles tener fotografías, trofeos o recuerdos sobre tu mesa de escritorio?</a><br>
+       <div class="custom-control custom-radio">
+    <select name="radio12" id="radio12" required="">
+      <option value=""></option>
+          <option value="SI">SI</option>
+          <option value="NO">NO</option>
+        </select>
+  </div>
+  <br>
+  <a class="lead">M.- ¿Sueles estudiar recostado en la cama o arrellanado en un asiento cómodo?</a><br>
+       <div class="custom-control custom-radio">
+    <select name="radio13" id="radio13" required="">
+      <option value=""></option>
+          <option value="SI">SI</option>
+          <option value="NO">NO</option>
+        </select>
+  </div>
+  <br>
+  <a class="lead">N.- ¿Produce resplandor la lámpara que utilizas al estudiar? </a><br>
+       <div class="custom-control custom-radio">
+    <select name="radio14" id="radio14" required="">
+      <option value=""></option>
+          <option value="SI">SI</option>
+          <option value="NO">NO</option>
+        </select>
+  </div>
+  <br>
+  <a class="lead">O.- Tu mesa de estudio ¿está tan desordenada y llena de objetos, que no dispones de sitio suficiente para estudiar con eficacia?</a><br>
+       <div class="custom-control custom-radio">
+    <select name="radio15" id="radio15" required="">
+      <option value=""></option>
+          <option value="SI">SI</option>
+          <option value="NO">NO</option>
+        </select>
+  </div>
+  <br>
+  <a class="lead">P.- ¿Sueles interrumpir tu estudio, por personas que vienen a visitarte? </a><br>
+       <div class="custom-control custom-radio">
+    <select name="radio16" id="radio16" required="">
+      <option value=""></option>
+          <option value="SI">SI</option>
+          <option value="NO">NO</option>
+        </select>
+  </div>
+  <br>
+  <a class="lead">Q.- ¿Estudias, con frecuencia, mientras tienes puesta la televisión y/o la radio?</a><br>
+       <div class="custom-control custom-radio">
+    <select name="radio17" id="radio17" required="">
+      <option value=""></option>
+          <option value="SI">SI</option>
+          <option value="NO">NO</option>
+        </select>
+  </div>
+  <br>
+  <a class="lead">R.- En el lugar donde estudias, ¿se pueden ver con facilidad revistas, fotos de jóvenes o materiales pertenecientes a tu afición?</a><br>
+       <div class="custom-control custom-radio">
+    <select name="radio18" id="radio18" required="">
+      <option value=""></option>
+          <option value="SI">SI</option>
+          <option value="NO">NO</option>
+        </select>
+  </div>
+  <br>
+  <a class="lead">S.- ¿Con frecuencia, interrumpen tu estudio, actividades o ruidos que provienen del exterior?</a><br>
+       <div class="custom-control custom-radio">
+    <select name="radio19" id="radio19" required="">
+          <option value=""></option>
+          <option value="SI">SI</option>
+          <option value="NO">NO</option>
+        </select>
+  </div>
+  <br>
+  <a class="lead">T.- ¿Suele hacerse lento tu estudio debido a que no tienes a la mano los libros y los materiales necesarios?</a><br>
+       <div class="custom-control custom-radio">
+    <select name="radio20" id="radio20" required="">
+      <option value=""></option>
+          <option value="SI">SI</option>
+          <option value="NO">NO</option>
+        </select>
+  </div>
+  <br>
+  <br>
+   <div class="form-group col-lg-3 offset-5">
+          
+          <button id="btnenviar" type="submit" class="form-control btn-success">Enviar</button>
+        </div> 
+        <div class="form-group col-md-3 offset-5">
+           <input type="reset" name="Cancelar" class="custom-control-input" >
+          <button id="btncancel" class="form-control btn-danger">Cancelar</button>
+        </div>        
+</form>
+</div>
+</section>
+
+
+     </body>
+
+  <script src="../js/bootstrap.min.js"></script><!--librerias-->
+  <script src="../js/jquery.validate.min.js"></script>
+  <script src="../js/jqBootstrapValidation.js"></script> 
+  <script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="../js/bootstrap.bundle.min.js"></script>
+  <script type="text/javascript" src="../js/popper.min.js"></script> 
+<script>
+
+    $(function(){
+
+       $("#btncancel").click(function(){        
+          window.location="../Vista/menualum.html";
+          });   
+    });
+      </script>

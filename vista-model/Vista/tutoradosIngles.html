@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="../css/datatables.min.css">
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<title>TUTORES INGLES</title>
+
+	<style>
+        #tabla_Alumnos
+        {
+            width: 100%;
+        }
+        
+        #tabla_Alumnos_wrapper
+        {
+            width: 100%;
+        }
+        
+        #tabla_Alumnos th
+        {
+            width: 2%;
+            
+        }
+        .inpAlumnos
+        {
+            width: 100%;
+            font-size: 12px;
+        }
+
+    </style>
+</head>
+<body>
+
+	<div class="conatiner">
+		<center>
+		<h1 class="">ALUMNOS DE INGLES TUTORADOS</h1>
+		</center>
+      	<hr class="bg-info">
+
+      	<div class="container">
+      		<table id="tabla_Alumnos"  class="table table-responsive table-sm table-hover">
+      			<thead style="background-color: #73b1dd">
+      				<tr>
+      					<th scope="col">Matricula</th>
+      					<th scope="col">Nombre</th>
+      					<th scope="col">Apellidos</th>
+      					<th scope="col">Nivel</th>
+      					<th scope="col">Calificación</th>
+      				</tr>
+      			</thead>
+      			<thead class="filters_Alumnos" style="background-color: #73b1dd">
+                         <tr>
+                             
+                             <th scope="col">Matricula</th>
+                             <th scope="col">Nombre</th>
+                             <th scope="col">Apellidos</th>
+                             <th scope="col">Nivel</th>
+                             <th scope="col">Calificación</th>
+                         </tr>
+                     </thead>
+      			<tbody id="tbody_Alumnos"></tbody>
+      		</table>
+      	</div>
+
+		
+	</div>
+	
+</body>
+
+<script src="../js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="../js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="../js/popper.min.js"></script> 
+<script src="../js/datatables.min.js"></script>
+
+<script>
+	
+	$.ajax({
+
+            	type: 'GET',
+           		url: '../Modelo/tutorados-ingles.php',
+            	success: function(dato){
+               // alert(dato);
+            		$("#tbody_Alumnos").append(dato); 
+
+
+
+            		$('#tabla_Alumnos .filters_Alumnos th').each( function () {
+                    	var title = $('#tabla_Alumnos thead th').eq( $(this).index() ).text();
+                    	if( title != ""){
+                    		$(this).html( '<input class="inpAlumnos" type="text" placeholder="Buscar" />' );
+                    		}
+                    
+                	});
+
+
+                	var table = $('#tabla_Alumnos').DataTable();
+ 
+                    // Apply the search
+                table.columns().eq( 0 ).each( function ( colIdx ) {
+                    $( 'input', $('.filters_Alumnos th')[colIdx] ).on( 'keyup change', function () {
+                       table
+                            .column( colIdx )
+                            .search( this.value )
+                            .draw();
+                    });
+                });
+
+                $("#tabla_Alumnos_filter").addClass("d-none");
+                
+ 
+               }
+             });//fin $.get y .done externos
+</script>
+
+</html>

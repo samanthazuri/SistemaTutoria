@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="../css/datatables.min.css">
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/estilos.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+	<title>ACTIVIDADES TUTORIAS</title>
+
+	  <style>
+        #tabla_Tutorados
+        {
+            width: 100% !important;
+        }
+        
+        #tabla_Tutorados_wrapper
+        {
+            width: 100%;
+        }
+        
+        #tabla_Tutorados th
+        {
+            width: 2%;
+            
+        }
+        .inpTutorados
+        {
+            width: 100%;
+            font-size: 12px;
+        }
+
+    </style>
+</head>
+<body>
+	<div class="container">
+
+		<div>
+
+			<h3 class="pt-1 mt-1">ACTIVIDADES DE TUTORIA</h3>
+			<hr>
+
+			
+			
+			<div>
+				<table  class="table table-responsive table-sm table-hover" id="tabla_Tutorados">
+                     <thead class="" style="background-color: #73b1dd">
+                         <tr>
+                    
+                        	<th scope="col">Matricula</th>
+							<th scope="col">Test de autoestima</th>
+							<th scope="col">Estilos de aprendizaje</th>
+							<th scope="col">Motivación de estudio</th>
+							<th scope="col">Organización de estudio</th>
+                    
+                         </tr>
+                     </thead>
+
+                     <thead class="filters_Tutorados" style="background-color: #73b1dd">
+                         <tr>
+ 
+                            <th scope="col">Matricula</th>
+							<th scope="col">Test de autoestima</th>
+							<th scope="col">Estilos de aprendizaje</th>
+							<th scope="col">Motivación de estudio</th>
+							<th scope="col">Organización de estudio</th>
+                         </tr>
+                     </thead>
+
+                     <!--<tbody id="tbody_Tutorados"></tbody>-->
+                </table>
+             <!--   <form method="POST" enctype="multipart/form-data" action="inicio.html">
+					
+                	<button id="btn-tutoradosSelect" type="button" class="btn btn-success">Regresar</button>
+                </form>-->
+			</div>
+		</div>
+		
+	</div>
+	
+</body>
+<script type="text/javascript" src="../js/popper.min.js"></script>
+<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+<script src="../js/bootstrap.min.js"></script><!--librerias--> 
+<script src="../js/datatables.min.js"></script>
+
+<script>
+
+	$(function(){
+		listar();
+        
+	});
+
+	
+
+	var listar = function(){
+		//alert("das");
+		$.ajax({
+			url: "../Modelo/lista_actTutorias.php",
+			type: "POST",
+			//dataType: "json",
+			success: function(dato){
+				
+				console.log(dato);
+				var tabla = $("#tabla_Tutorados").DataTable({
+					destroy: true,
+					data: dato,
+					columns: [
+						{"data": "matricula"},
+						{"data": "autoestima"},
+						{"data": "estilos_aprendizaje"},
+						{"data": "motivacion_estudio"},
+						{"data": "organizacion_est"}
+					]
+				});
+				//tabla;
+				//debugger;
+
+
+				formato_datatable();
+			}
+		});
+
+		
+		
+		
+	}
+
+	var formato_datatable = function(){
+		$('#tabla_Tutorados .filters_Tutorados th').each( function () {
+                    	var title = $('#tabla_Tutorados thead th').eq( $(this).index() ).text();
+                    	if( title != ""){
+                    		$(this).html( '<input class="inpTutorados" type="text" placeholder="Buscaraa" />' );
+                    		}
+                    
+                	});
+
+
+                	var table = $('#tabla_Tutorados').DataTable();
+ 
+                    // Apply the search
+                table.columns().eq( 0 ).each( function ( colIdx ) {
+                    $( 'input', $('.filters_Tutorados th')[colIdx] ).on( 'keyup change', function () {
+                       table
+                            .column( colIdx )
+                            .search( this.value )
+                            .draw();
+                    });
+                });
+
+                $("#tabla_Tutorados_filter").addClass("d-none");
+	}
+
+	
+
+
+
+	
+</script>
+
+</html>

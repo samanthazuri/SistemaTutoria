@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Actividades complementarias</title>
+  <link href="https://fonts.googleapis.com/css?family=Francois+One" rel="stylesheet">
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/estilos.css">
+
+  <style>
+      .container{margin-top:100px}
+    </style>
+   </head>
+
+     <body>
+      <div class="container">
+
+
+ <!--<?php /*if(!empty($message)):?>
+  <p><?= $message ?></p>
+  <?php endif;*/?>-->
+
+   
+    
+    <div class="conntainer">
+      <div class="row justify-content-center mt-5 pt-5">
+      <div class="col-md-7">
+      <h1 class="display-8"> Registro de actividades complementarias tecnologicas</h1>
+      <hr class="bg-info">
+      <p class="text-danger small pt-0 mt-0">Todos los campos son obligatorios *</p>
+  
+
+    <form  > 
+      <div class="row from-group">
+        <label for="matricula" class="col-form-label col-md-4">Matricula</label>
+        <div class="col-md-8">
+        <input   name= "matricula" id= "matricula" type = "text"  placeholder = "Matricula" class="form-control" required>
+        <button type="button" id="btn-check" class="btn btn-primary btn-sm mt-2">Revisar</button>
+        </div>  
+      </div><br>
+      <div id="div_complementarias" class="row from-group d-none" >
+        <label id="lb_inovacion" for="inovacion" class="col-form-label col-md-4">Actividad</label>
+        <div class="col-md-8">
+          <select class="form-control" id="inovacion" name="inovacion" required="">
+            <!--<option class="nav-link disabled" aria-disabled="true">Seleccione una actividad</option>
+            <option value="Inovacion tecnologica">Inovacion tecnologica</option>
+            <option value="Cultural deportiva">Cultural deportiva</option>
+            <option value="Ambiental">Ambiental</option>-->
+          </select>
+        </div>
+        <div id="status" class="d-none col-12">
+          <center><p id="aprobado" class="d-none">ACTIVIDAD CURSADA</p></center>
+          <center><p id="registrado" class="d-none">ALUMNO INSCRITO EN ESTA ACTIVIDAD</p></center>
+        </div>
+        <div class="form-group col-lg-4 offset-6 pt-5">
+          <input type="submit" name="enviar" class="custom-control-input" >
+          <button  id="btnenviar" class="form-control btn-success" type="button">Enviar</button>
+        </div>
+      </div>  
+       
+      
+    </form>
+  </div>
+</div>
+</div>
+</div>
+</body>
+
+
+
+
+  <!--<script type="text/javascript" src="../js/bootstrap.bundle.min.js"></script>-->
+  <script type="text/javascript" src="../js/popper.min.js"></script>
+  <script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script><!--librerias-->
+  
+
+
+  <script>
+    $(function(){
+
+      /*
+       $.ajax({
+                    type: "GET",
+                    url: "../modelo/retirarApartadoInventario.php",
+                    data:{CantidadRetiro: CantidadRetiro2, idA: idA2, FechaH: FechaH2, idMaterial: idMat2},
+                        success: function(dato){
+      */
+     
+     var matricula ="";
+     var actComAlumno="";
+     var numAct = 0;
+     var claveT = "";
+    // var ACA = false;
+     /*
+     <option value="Inovacion tecnologica">Inovacion tecnologica</option>
+            <option value="Cultural deportiva">Cultural deportiva</option>
+            <option value="Ambiental">Ambiental</option>
+      */
+     //var actividades = ["Inovacion tecnologica","Cultural deportiva","Ambiental"];
+
+      $("#matricula").focus(function(){
+        $("#div_complementarias").addClass("d-none");
+      });
+     
+     $("#btn-check").click(function(){
+        matricula = $("#matricula").val();
+        alert(matricula);
+        $.ajax({
+          type: "GET",
+          url: "../Modelo/obtenerComplementariasValidas.php",
+          data: {
+            matricula: matricula
+          },
+          success: function(dato){
+          alert(dato);
+            var dt = dato.trim();
+            $("#inovacion").empty();
+           // alert("||"+dt+"||");
+            if(dt != "none")
+            {
+              $("#div_complementarias").removeClass("d-none");
+              var arrayDatos = dato.split("///");
+              debugger
+              actComAlumno = arrayDatos[1];
+              numAct = arrayDatos[0].trim();
+              claveT = arrayDatos[2];
+              var statusActividad = actComAlumno.split("(");
+              //alert("tutor: "+claveT);
+              //if(arrayDatos[1] == "")
+              //{
+               // alert("no tiene actividades: "+arrayDatos[3]);
+                if(arrayDatos[3] != "<option class='nav-link disabled' aria-disabled='true'>Seleccione una actividad</option>")
+                {
+
+                  $("#lb_inovacion").removeClass("d-none");
+                  $("#inovacion").removeClass("d-none");
+                   // alert("registrando actividad: "+arrayDatos[3]);
+                    $("#inovacion").append(arrayDatos[3]);
+                    $("#registrado").addClass("d-none");
+                    $("#aprobado").addClass("d-none");
+                  
+
+                 
+
+                }else{
+                   $("#status").removeClass("d-none");  
+                  //alert("|||ARRAYDATOS"+arrayDatos[1]);
+                  //alert("|||Status: "+statusActividad[1]);
+                  //$("#inovacion").append(arrayDatos[3]);
+                  if(statusActividad[1] == "registrado)"){
+                    //alert("REGISTRADO");
+                    $("#registrado").removeClass("d-none");
+                    $("#aprobado").addClass("d-none");
+                    $("#status").addClass("alert-warning");
+                    $("#status").removeClass("alert-success");
+                    $("#inovacion").addClass("d-none");
+                    $("#lb_inovacion").addClass("d-none");
+
+                  }else if(statusActividad[1] == "aprobado)"){
+                    alert("APROBADO");
+                    $("#aprobado").removeClass("d-none");
+                    $("#registrado").addClass("d-none");
+                    $("#status").addClass("alert-success");
+                    $("#status").removeClass("alert-warning");
+                    $("#inovacion").addClass("d-none");
+                    $("#lb_inovacion").addClass("d-none");
+                  }
+                }
+              //}
+            }else{
+              alert("MATRICULA NO VÁLIDA");
+            }
+
+          } 
+        });
+     });
+     
+     $("#btnenviar").click(function(){
+
+        //../Modelo/complementarias.php
+         var act = $("#inovacion").val();
+
+         if(act == "Seleccione una actividad")
+         {
+            alert("Debe seleccionar la actividad a la que el alumno se registrara");
+         }else
+         {
+            act += "(registrado)";
+            alert("matricula: "+matricula+" act: "+act +"  Numero Act: "+numAct+" ClaveT: "+claveT);
+            $.ajax({
+              type: "GET",
+              url: "../Modelo/complementarias.php",
+              data: {
+                matricula: matricula,
+                //estado: ACA,
+                actividad: act,
+                numeroAct: numAct,
+                idTutor: claveT
+              },
+              success: function(dato){
+                alert(dato);
+                $("#div_complementarias").addClass("d-none");
+                //$("#status").addClass("d-none");
+              }
+
+            });
+         }
+         
+        /*
+
+       
+
+        //alert("Act:"+act);
+      if(act != "Seleccione una actividad")
+      {
+        
+      }else{
+        alert("ACTIVIDAD NO VÁLIDA");
+      }
+      */
+
+     });
+     
+
+      
+
+    });
+  </script>
+
+  </html>

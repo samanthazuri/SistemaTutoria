@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+   <meta name="viewport" content="with=device-width,initial-scale=1,shrink-to-fit=no">
+  <title>ITSA</title>
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/estilos.css">
+   </head>
+
+     <body>
+ <section id="cover">
+     <div class="container-fluid">
+       <div class="row">
+         <div class="col-sm-12">
+
+         </div>
+       </div>
+     </div>
+ </section>
+
+    <div class="container">
+      <h1 class="display3">ENCUESTA SOBRE MOTIVACIÓN PARA EL ESTUDIO</h1><br>
+      <h4>Instrucciones:</h4>
+
+    <div class="row align-items-center">
+    <div class="col-sm-12 col-sm-12 col-md 4">
+      <p>
+        Lee cada una de las preguntas. Si contestas todas las preguntas con sinceridad y reflexión podrás identificar mucho de tus actuales defectos al estudiar.
+        Según corresponda tu respuesta a <strong>si </strong>o <strong> no</strong>. No hay respuestas "correctas" o "incorrectas", ya que la contestación adecuada es tu juicio sincero sobre tu modo de actuar y tus actitudes personales, respecto al estudio.
+     </p>
+    </div>
+  </div>
+</div>
+<br><br>
+
+ <section id="tets">
+   <div class="container">
+    <form action="../Modelo/reshabestu.php" method="POST" id="formulario">
+
+      <a class="lead">A.- Después  de los primeros días o semanas del curso, ¿tiendes a perder interés por el estudio? </a><br>
+      <div class="custom-control custom-radio">
+    <select name="radio1" id="radio1" required="">
+      <option value=""></option>
+          <option value="SI">SI</option>
+          <option value="NO">NO</option>
+        </select>
+  </div>
+  <br>
+  
+      <a class="lead">B.- ¿Crees que en general, basta estudiar lo necesario para obtener un "aprobado” en las asignaturas.</a><br>
+ <div class="custom-control custom-radio">
+    <select name="radio2" id="radio2" required="">
+      <option value=""></option>
+          <option value="SI">SI</option>
+          <option value="NO">NO</option>
+        </select>
+  </div>
+  <br>
+      <a class="lead">C.- ¿Te sientes frecuentemente confuso o indeciso sobre cuáles deben ser tus metas formativas y profesionales? </a><br>
+         <div class="custom-control custom-radio">
+    <select name="radio3" id="radio3" required="">
+      <option value=""></option>
+          <option value="SI">SI</option>
+          <option value="NO">NO</option>
+        </select>
+  </div><br>  
+      <a class="lead">D.- ¿Sueles pensar que no vale la pena el tiempo y el esfuerzo que son necesarios para lograr una educación universitaria? </a><br>
+      <div class="custom-control custom-radio">
+    <select name="radio4" id="radio4" required="">
+      <option value=""></option>
+          <option value="SI">SI</option>
+          <option value="NO">NO</option>
+        </select>
+  </div>
+  <br>
+      <a class="lead">E.- ¿Crees que es más importante divertirte y disfrutar de la vida, que estudiar</a><br>
+      <div class="custom-control custom-radio">
+    <select name="radio5" id="radio5" required="">
+      <option value=""></option>
+          <option value="SI">SI</option>
+          <option value="NO">NO</option>
+        </select>
+  </div>
+  <br>
+      <a class="lead">F.- ¿Sueles pasar el tiempo de clase en divagaciones o soñando despierto en lugar de atender al docente?  </a><br>
+      <div class="custom-control custom-radio">
+    <select name="radio6" id="radio6" required="">
+      <option value=""></option>
+          <option value="SI">SI</option>
+          <option value="NO">NO</option>
+        </select>
+  </div>
+  <br>
+      <a class="lead">G.- ¿Te sientes habitualmente incapaz de concentrarte en tus estudios debido a que estas inquieto, aburrido o de mal humor?</a><br>
+      <div class="custom-control custom-radio">
+       <select name="radio7" id="radio7" required="">
+      <option value=""></option>
+          <option value="SI">SI</option>
+          <option value="NO">NO</option>
+        </select>
+  </div>
+  <br>
+       <a  class="lead">H.- ¿Piensas con frecuencia que las asignaturas que estudias tienen poco valor practico para ti?  
+</a><br>
+       <div class="custom-control custom-radio">
+        <select name="radio8" id="radio8" required="">
+      <option value=""></option>
+          <option value="SI">SI</option>
+          <option value="NO">NO</option>
+        </select>
+  </div>
+  <br>
+       <a  class="lead">I.- ¿Sientes, frecuentes deseos de abandonar la escuela y conseguir un trabajo? </a><br>
+       <div class="custom-control custom-radio">
+        <select name="radio9" id="radio9" required="">
+      <option value=""></option>
+          <option value="SI">SI</option>
+          <option value="NO">NO</option>
+        </select>
+  </div>
+  <br>
+       <a class="lead">J.- ¿Sueles tener la sensación de lo que se enseña en los centros docentes no te prepara para afrontar los problemas de la vida adulta? </a><br>
+       <div class="custom-control custom-radio">
+    <select name="radio10" id="radio10" required="">
+      <option value=""></option>
+          <option value="SI">SI</option>
+          <option value="NO">NO</option>
+        </select>
+  </div>
+  <br>
+   <a class="lead">K.- ¿Sueles dedicarte de modo casual, según el estado de ánimo en que te encuentres?  <a><br>
+       <div class="custom-control custom-radio">
+    <select name="radio11" id="radio11" required="">
+      <option value=""></option>
+          <option value="SI">SI</option>
+          <option value="NO">NO</option>
+        </select>
+  </div>
+  <br>
+  <a class="lead">L.- ¿Te horroriza estudiar libros de textos porque son insípidos y aburridos?</a><br>
+       <div class="custom-control custom-radio">
+    <select name="radio12" id="radio12" required="">
+      <option value=""></option>
+          <option value="SI">SI</option>
+          <option value="NO">NO</option>
+        </select>
+  </div>
+  <br>
+  <a class="lead">M.- ¿Esperas normalmente a que te fijen la fecha de un evaluación para comenzar a estudiar los textos o repasar tus apuntes de clases? </a><br>
+       <div class="custom-control custom-radio">
+    <select name="radio13" id="radio13" required="">
+      <option value=""></option>
+          <option value="SI">SI</option>
+          <option value="NO">NO</option>
+        </select>
+  </div>
+  <br>
+  <a class="lead">N - ¿Sueles pensar que los exámenes son pruebas penosas de las que no se puede escapar y respecto a las cuales lo que debe hacerse es sobrevivir, del modo que sea?</a><br>
+       <div class="custom-control custom-radio">
+    <select name="radio14" id="radio14" required="">
+      <option value=""></option>
+          <option value="SI">SI</option>
+          <option value="NO">NO</option>
+        </select>
+  </div>
+  <br>
+  <a class="lead">O.- ¿Sientes con frecuencia que tus docentes no comprenden las necesidades de los estudiantes?</a><br>
+       <div class="custom-control custom-radio">
+    <select name="radio15" id="radio15" required="">
+      <option value=""></option>
+          <option value="SI">SI</option>
+          <option value="NO">NO</option>
+        </select>
+  </div>
+  <br>
+  <a class="lead">P.- ¿Tienes normalmente la sensación de que tus docentes exigen demasiadas horas de estudio fuera de clase?</a><br>
+       <div class="custom-control custom-radio">
+    <select name="radio16" id="radio16" required="">
+      <option value=""></option>
+          <option value="SI">SI</option>
+          <option value="NO">NO</option>
+        </select>
+  </div>
+  <br>
+  <a class="lead">Q.- ¿Dudas por lo general, en pedir ayuda a tus docentes en tareas que te son difíciles?  </a><br>
+       <div class="custom-control custom-radio">
+    <select name="radio17" id="radio17" required="">
+      <option value=""></option>
+          <option value="SI">SI</option>
+          <option value="NO">NO</option>
+        </select>
+  </div>
+  <br>
+  <a class="lead">R.- ¿Sueles pensar que tus docentes no tienen contacto con los temas y sucesos de actualidad?  
+</a><br>
+       <div class="custom-control custom-radio">
+    <select name="radio18" id="radio18" required="">
+      <option value=""></option>
+          <option value="SI">SI</option>
+          <option value="NO">NO</option>
+        </select>
+  </div>
+  <br>
+  <a class="lead">S.- ¿Te sientes reacio, por lo general, a hablar con tus docentes de tus proyectos futuros, de estudio o profesionales? </a><br>
+       <div class="custom-control custom-radio">
+    <select name="radio19" id="radio19" required="">
+      <option value=""></option>
+          <option value="SI">SI</option>
+          <option value="NO">NO</option>
+        </select>
+  </div>
+  <br>
+  <a class="lead">T.- ¿Criticas con frecuencia a tus docentes cuando charlas con tus compañeros? </a><br>
+       <div class="custom-control custom-radio">
+    <select name="radio20" id="radio20" required="">
+      <option value=""></option>
+          <option value="SI">SI</option>
+          <option value="NO">NO</option>
+        </select>
+  </div>
+  <br>
+  <br>
+   <div class="form-group col-lg-3 offset-5">
+          <button  id="btnenviar" type="submit" class="form-control btn-success">Enviar</button>
+        </div>       
+
+    <div class="form-group col-lg-3 offset-5">
+          <button  id="btncancel" class="form-control btn-danger">Cancelar</button>
+        </div>   
+</form>
+</div>
+</section>
+     </body>
+
+  <script src="../js/bootstrap.min.js"></script><!--librerias-->
+  <script src="../js/jquery.validate.min.js"></script>
+  <script src="../js/jqBootstrapValidation.js"></script> 
+  <script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="../js/bootstrap.bundle.min.js"></script>
+  <script type="text/javascript" src="../js/popper.min.js"></script> 
+<script>
+
+    $(function(){
+
+  $("#btncancel").click(function(){        
+          window.location="../Vista/menualum.html";
+          });   
+    });
+      </script>
+    </html>

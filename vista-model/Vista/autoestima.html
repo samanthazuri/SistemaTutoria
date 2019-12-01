@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+   <meta name="viewport" content="with=device-width,initial-scale=1,shrink-to-fit=no">
+  <title>ITSA-Test de autoestima</title>
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/estilos.css">
+   </head>
+
+     <body>
+ <section id="cover">
+     <div class="container-fluid">
+       <div class="row">
+         <div class="col-sm-12">
+
+         </div>
+       </div>
+     </div>
+ </section>
+
+ <div class="container">
+      <h1 class="display3">TEST DE AUTOESTIMA </h1><br>
+      <h4>Instrucciones:</h4>
+
+    <div class="row align-items-center">
+    <div class="col-sm-12 col-sm-12 col-md 4">
+      <p>
+        Realiza el siguiente test para evaluar y comprobar tu nivel de autoestima. Contesta con la mayor sinceridad posible a cada una de las siguientes preguntas eligiendo la respuesta que más se identifique con tu forma de pensar o de actuar:
+     </p>
+    </div>
+  </div>
+</div>
+<br><br>
+
+<section id="tets">
+   <div class="container">
+    <form action="../Modelo/resaut.php" method="POST" id="formulario">
+
+      <a class="lead" for="res1">1- A la hora de tomar decisiones en tu vida, como proponer cosas nuevas en el trabajo, iniciar alguna actividad de ocio, o elegir un color nuevo para pintar tu casa, ¿sueles buscar la aprobación o el apoyo de las personas que te rodean? </a><br><br>
+      <div class="col-md-8">
+          <select class="form-control" id="nivel" name="res1" required>
+             <option ></option>
+             <option value="1">No, consideras que tu opinión sea buena y que la de los demás no tenga por qué serlo siempre.</option>
+             <option value="2">Sí, pero sólo ante las decisiones que consideras demasiado importantes como para actuar precipitadamente.</option>
+            <option value="3">Sí, siempre que puedes consultas con los demás. Te equivocas con frecuencia y quieres hacer las cosas bien</option>
+            <option value="4">Depende de la decisión. Sueles tener claro lo que vas a hacer, pero consideras las posibilidades que te ofrecen los demás</option>
+          </select>
+      </div><br><br>
+      <a class="lead" for="res2">2- Imagina que estás en una reunión social o familiar importante; adviertes que  vas vestido para la ocasión y que desentonas con los demás, ¿cómo te comportas?  </a><br><br>
+      <div class="col-md-8">
+          <select class="form-control" id="nivel" name="res2" required>
+             <option></option>
+             <option value="1">No le das importancia, te comportas con naturalidad y si alguien te lo comenta haces alguna broma al respecto</option>
+             <option value="2">Te da mucha vergüenza. Procuras situarte en algún lugar discreto y pasar desapercibido.</option>
+            <option value="3">Te sientes incómodo pero tratas de no pensar en ello, te integras en la reunión y das alguna excusa por tu error.</option>
+            <option value="4">No te importa nada en absoluto, aunque no lleves la ropa adecuada tienes estilo y sabes llevar bien cualquier cosa.</option>
+          </select>
+             </div><br><br>
+       <a class="lead" for="res3">3- Tienes muchas ganas de irte a comprar ropa y le pides a algún amigo que te acompañe. Esta persona es más alta y más atractiva que tú, y todo lo que se prueba le queda mucho mejor que a ti. </a><br><br>
+      <div class="col-md-8">
+          <select class="form-control" id="nivel" name="res3" required>
+             <option></option>
+             <option value="1">Admiras el estilo de tu acompañante, al final compras un par de prendas necesarias pero muy simples en cuanto a forma y color. </option>
+             <option value="2">No estás dispuesto a que te gane, decides comprar varias prendas muy modernas y bastante caras. </option>
+            <option value="3">Admiras su estilo pero eres muy consciente del tuyo, compras la ropa que mejor te sienta y que necesitas, y pasáis un rato ameno probándoos cosas diferentes</option>
+            <option value="4">A su lado te sientes bastante poca cosa, te quita las ganas de probarte nada y mucho menos de comprar. Pones una excusa y te marchas. </option>
+          </select>
+             </div><br><br>
+      <a class="lead" for="res4">4- Un día conoces a alguien nuevo y muy interesante, estáis charlando animadamente y llega el momento de hablar de ti, ¿cuál de las siguientes opciones mejor se ajusta a lo que cuentas? </a><br><br>
+      <div class="col-md-8">
+          <select class="form-control" id="nivel" name="res4" required>
+            <option></option>
+             <option value="r1">No crees que tengas mucho que contar, tu trabajo es muy corriente, tus amigos son normales y tus aficiones también. Prefieres que esta persona te cuente su vida.</option>
+             <option value="2">Tu trabajo te gusta y aunque sea corriente, siempre lo enfocas desde una perspectiva interesante, tus aficiones son tu pasión y disfrutas hablando de ellas, también hablas de tus proyectos futuros. </option>
+            <option value="3">Hablas en líneas generales de tu trabajo y de tus aficiones, sobre todo hablas de tus amigos y de lo más interesante de sus vidas. </option>
+            <option value="4">Más que de tu trabajo actual, hablas de tus proyectos y de tus objetivos, y de lo que vas a hacer para logrados, de lo buenas que son tus amistades y lo poco usual de tus aficiones. Te gusta hablar de ti. </option>
+          </select>
+             </div><br><br>
+      <a class="lead" for="res5">5- En tu lugar de trabajo o de estudios, se está explicando algo que es completamente nuevo para ti. Llega un momento en que te das cuenta que no has entendido casi nada ¿qué haces?  </a><br><br>
+      <div class="col-md-8">
+          <select class="form-control" id="nivel" name="res5" required>
+             <option></option>
+             <option value="1">Paras la explicación y requieres que se empiece de nuevo, si tu no lo entiendes habrá mucha gente que tampoco lo haga.</option>
+             <option value="2">Si hay más gente que pregunte tu también lo haces, si no, buscas en un aparte al ponente para que te aclare las dudas. </option>
+            <option value="3">Te da mucha vergüenza preguntar y demostrar así que no entiendes. Más tarde preguntarás a algún amigo o intentarás informarte por tu cuenta. </option>
+            <option value="4">Tomas nota de lo que no entiendes para preguntarlo al finalizar la charla, si sigues con dudas pedirás información complementaria para prepararte mejor. </option>
+          </select>
+             </div><br><br>
+      <a class="lead" for="res6">6- Tener un trabajo bien remunerado y que nos guste es algo difícil de conseguir, si tuvieras que valorar tu empleo o tu situación laboral, ¿cómo la definirías?</a><br><br>
+      <div class="col-md-8">
+          <select class="form-control" id="nivel" name="res6" required>
+             <option></option>
+             <option value="1">Satisfactoria, tratas de buscar el lado positivo de las cosas y nunca te faltan proyectos y objetivos que perseguir. </option>
+             <option value="2">Horrible, no obstante, sabes que las cosas están mal y que tienes que aguantar lo que sea. Estás muy agradecido por tener trabajo.  </option>
+            <option value="3">No te preocupa especialmente el tema, tienes un montón de proyectos más importantes y con tu valía los alcanzarás. </option>
+            <option value="4">Has logrado que no te afecte, consideras más importante tu vida personal y privada y eso es por lo que luchas </option>
+          </select>
+             </div><br><br
+      <a class="lead" for="res7">7- Has tenido un día duro, has trabajado con más ahínco para finalizar una tarea en la oficina, has hecho todas las gestiones que tenías pendientes, has resuelto un par de problemas domésticos y encima le has hecho un favor a un amigo. ¿Qué haces al llegar a casa</a><br><br>
+      <div class="col-md-8">
+          <select class="form-control" id="nivel" name="res7" required>
+             <option></option>
+             <option value="1">Prefieres no pensarlo, el día ha sido duro pero para ti no es algo nuevo, solo pides poder dormir bien y que mañana sea un día más tranquilo. </option>
+             <option value="2">Se lo cuentas a todo el mundo, te gusta que se te reconozca cuando haces las cosas bien y exiges en casa que te mimen por haberte esforzado tanto.</option>
+            <option value="3">Estás muy satisfecho y decides darte un capricho, darte un baño de espuma y ver una buena película, o comprarte un regalito que hace tiempo querías. </option>
+            <option value="4">Te preocupa que se te haya olvidado algo o haber hecho algo mal por la prisa, repasas mentalmente las actividades y al día siguiente esperas no tener queja de nadie.</option>
+          </select>
+             </div><br><br>
+       <a class="lead" for="res8">8- En tu trabajo están buscando a una persona que represente a la empresa en un concurso del ramo. Piden una persona que cumpla unos requisitos, entre ellos, explicar bien vuestro trabajo y que haga una demostración práctica del mismo.</a><br><br>
+      <div class="col-md-8">
+          <select class="form-control" id="nivel" name="res8" required>
+             <option></option>
+             <option value="1">No te planteas ser voluntario, hay mil personas más capacitadas que tú para la demostración y no se te da bien hablar en público. </option>
+             <option value="2">Te presentas voluntario, puede ser una experiencia interesante y si sales elegido puedes hacer una presentación innovadora. </option>
+            <option value="3">No te presentas, serías capaz de hacerla bien pero crees que hay gente mejor preparada y más original que tú.</option>
+            <option value="4">Te presentas y estás casi seguro de que te elegirán, haces buenos proyectos y darás una buena imagen de la empresa. </option>
+          </select>
+             </div><br><br>
+      <a class="lead" for="res9">9- ¿Con cuál de las siguientes frases sobre la buena fortuna estás más de acuerdo? </a><br><br>
+      <div class="col-md-8">
+          <select class="form-control" id="nivel" name="res9" required>
+             <option></option>
+             <option value="1">La buena suerte puede tocarle a todo el mundo, yo me considero una persona afortunada a la que la vida le sonríe. </option>
+             <option value="2">Para tener buena suerte hay que trabajar duro, sólo los muy afortunados la tienen sin apenas esfuerzo. </option>
+            <option value="3">Yo no tengo suerte, tanto los premios como las cosas especia les sólo les pasan a los demás.</option>
+            <option value="4">La suerte respecto a los premios es una cuestión de probabilidad, y respecto a las cosas de la vida, siempre depende de cómo se perciban.</option>
+          </select>
+             </div><br><br>
+      <a class="lead" for="res10">10- En una fiesta en La que no conoces a nadie excepto a Los anfitriones, te presentan a un grupo de personas de aspecto interesante. ¿Cuál es tu actitud?</a><br><br>
+      <div class="col-md-8">
+          <select class="form-control" id="nivel" name="res10" required>
+             <option></option>
+             <option value="1">Te interesa conocerlos no sólo para pasar un buen rato en la reunión sino porque puede ser una forma de iniciar una amistad.</option>
+             <option value="2">Esperas causarles una buena impresión y decir cosas que les puedan interesar </option>
+            <option value="3">Te gustaría llevarles a tu terreno en la conversación para así poder hablar de los temas que más te interesan.</option>
+            <option value="4">Antes de iniciar una conversación escuchas lo que dicen, y es peras para hablar a que lo hagan de temas que tú conozcas. </option>
+          </select>
+             </div><br><br> 
+
+          <div class="form-group col-lg-3 offset-5">
+          <input type="submit" name="enviar" class="custom-control-input" >
+          <button  id="btnenviar" class="form-control btn-success">Enviar</button>
+        </div>  
+
+        <div class="form-group col-md-3 offset-5">
+          <button id="btncancel" class="form-control btn-danger">Cancelar</button>
+        </div>   
+    </form>
+  </div>
+</section>
+</body>
+<script src="../js/bootstrap.min.js"></script><!--librerias-->
+  <script src="../js/jquery.validate.min.js"></script>
+  <script src="../js/jqBootstrapValidation.js"></script> 
+  <script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="../js/bootstrap.bundle.min.js"></script>
+  <script type="text/javascript" src="../js/popper.min.js"></script> 
+<script>
+
+    $(function(){
+
+  $("#btncancel").click(function(){        
+          window.location="../Vista/menualum.html";
+          });   
+    });
+      </script>
+</html>
