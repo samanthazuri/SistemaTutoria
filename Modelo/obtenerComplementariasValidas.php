@@ -3,42 +3,37 @@ session_start();
 require("conexion1.php");
 	
 	$matricula=$_GET['matricula'];
+	$cargo = $_SESSION['tipoJefe'];
 	$alumnoRegistrado=false;
-	$numActividades= 0;
-	$act_nom = "";
-	$cargoIgual = "none";
-	$cve_tut ="none";
-	$iguales =false;
-	$selectComponent= "<option class='nav-link disabled' aria-disabled='true'>Seleccione una actividad</option>";
-	$contJ3 = 0;
-	//$actComplementarias = "Actividad Tecnologica o Emprendimiento||Cultural y Civicas||Actividad Ambiental||Actividades academicas||Actividad deportiva||";
+	$alumnoActividades=false;
+	$selectComponent= "<option act='none' class='nav-link disabled' aria-disabled='true'>Seleccione una actividad</option>";
+	$estado= "none";
+	
+	//echo($matricula."  ".$cargo);
+	if($cargo == "J1" || $cargo == "J2"){
+		//COORDINADOR NO PUEDE VER EL APARTADO DE REPORTES
+		//SUBDIRCTOR ACADEMICO VE 
+		$cargoActividad = "act_academica";
+		$title = "Actividad academica";
 
-	$mensaje="none";
+	} else if($cargo == "J3")
+	{
+		$cargoActividad = "act_deportiva";
+		$cargoActividad2 = "act_cultural_civica";
+		$title = "Atividad deportiva";
+		$title2 = "Atividad civica";
 
-	 // $cargo = $_SESSION['tipoJefe'];
-	 // echo("CARGO:" .$cargo);
-	 // 
-	 $cargo = $_SESSION['tipoJefe'];
-	 //echo("CARGO:" .$cargo);
 
-	  if($cargo == "J1" || $cargo == "J2"){
-	  	//COORDINADOR NO PUEDE VER EL APARTADO DE REPORTES
-	  	//SUBDIRCTOR ACADEMICO VE 
-
-	  	$cargoActividad = "Actividades academicas";
-
-	  } else if($cargo == "J3")
-	  {
-	  	$cargoActividad = "Actividad deportiva||Cultural y Civicas";
-
-	  }else if($cargo == "J4")
-	  {
-	  	$cargoActividad = "Actividad Ambiental";
-	  }
-	  else if($cargo == "J5")
-	  {
-	  	$cargoActividad = "Actividad Tecnologica o Emprendimiento";
-	  }
+	}else if($cargo == "J4")
+	{
+		$cargoActividad = "act_ambiental";
+		$title = "Actividad ambiental";
+	}
+	else if($cargo == "J5")
+	{
+		$cargoActividad = "act_inovacion";
+		$title = "Actividad inovación";
+	}
 
 	$busca= "SELECT * FROM alumno WHERE matricula ='$matricula'";
     $sql=mysqli_query($conexion, $busca) or die ("Error");
@@ -48,121 +43,77 @@ require("conexion1.php");
 			$alumnoRegistrado=true;
 			//echo("EL TUTOR ES: ".$cve_tut);
 
-			$busca_act= "SELECT * FROM act_complementarias WHERE matricula = '$matricula'";
-		
-
+			$busca_act= "SELECT * FROM act_complementarias2 WHERE matricula = '$matricula'";
 			$sql2=mysqli_query($conexion, $busca_act) or die ("Error");
-        
+        	//echo($busca_act);
 			while ($columna2=mysqli_fetch_array($sql2)) 
-			{ 
-				$act_nom .= $columna2['nom_act'];
-				$numActividades = $columna2['num_act'];
+			{
+				$estado= "on"; 
+				$alumnoActividades = true;
+				//echo("EL TUTOR ES: ".$cve_tut);
+				if($cargo == "J3")
+				{
+					$act_nom1 = $columna2[$cargoActividad];
+					$act_nom2 = $columna2[$cargoActividad2];
+					if($act_nom1 == "")
+					{
+						$selectComponent .= "<option act='$cargoActividad'>$title</option>";
+					}
+					if($act_nom2 == "")
+					{
+						$selectComponent .= "<option act='$cargoActividad2'>$title2</option>";
+					}
+					
+					if($act_nom1 == "registrado" && $act_nom2 == "registrado")
+					{
+						$selectComponent = "registrado";
+					}
+					else if($act_nom1 == "aprobado" && $act_nom2 == "aprobado")
+					{
+						$selectComponent = "aprobado";
+					}
+					$numActividades = $columna2['num_act'];
+				}else
+				{
+					$act_nom1 = $columna2[$cargoActividad];
+					if($act_nom1 == "")
+					{
+						$selectComponent .= "<option act='$cargoActividad'>$title</option>";
+					}else if($act_nom1 == "registrado")
+					{
+						$selectComponent = "registrado";
+					}else if($act_nom1 == "aprobado")
+					{
+						$selectComponent = "aprobado";
+					}
+					$numActividades = $columna2['num_act'];
+				}
 			}
 
 			//if()
 	}
-	//echo("Actividades: $act_nom");
-	//array que tiene las actividades aprobadas por el alumno
-		$array1=explode('||', $act_nom);
-		$tam_array1=sizeof($array1);
-
-		$array2=explode('||', $cargoActividad);
-		//echo($array2[0]."ssdsdsdsdjshdhjsjdhsdhjsdshdhjds|||||||");
-		$tam_array2=sizeof($array2);
-	if($act_nom != "")
-	{
-		
-
-		//$actComplementarias = "Inovacion tecnologica||Cultural deportiva||Ambiental||";
-		//echo("A1: $tam_array1 --- A2: $tam_array2");
-		for ($i=0; $i < $tam_array2 ; $i++) { 
-
-			for ($j=0; $j <$tam_array1 ; $j++) { 
-				//$j2 =$j;
-				//echo("VEIRIFICANDO:");
-				//echo("||||SON IGUALES||||$array2[$i]"."(registrado) == $array1[$j]) || ($array2[$i].(aprobado) == $array1[$j])||||------");
-				if( ($array2[$i]."(registrado)" == $array1[$j]) || $array2[$i]."(aprobado)" == $array1[$j] ){
-				//echo("||||SON IGUALES||||$array2[$i](registrado) == $array1[$j] || $array2[$i](aprobado) == $array1[$j]||||");
-					if($cargo == "J3")
-					{
-						$contJ3++;
-					}
-					$iguales=true;
-					//echo("igaules es $iguales");
-					$cargoIgual = $array1[$j];
-					$cargoIgual2 = $array2[$i];
-					//echo("CARGO 2 es: $cargoIgual2 ---");
-					//$j2 = $j;
-				//	echo("CURSO YA LA COMPLEMENTARIA DE: $array1[$j] -------");
-					//break;
-				}
-				$comp = $array2[$i];
-				
-			}
-
-			if($contJ3 <= 1 && $cargo == "J3")
-			{
-				$iguales=false;
-				//echo("IGUALES es $iguales ----");
-			}
-			//echo("$array2[$i] == $array1[$j]=========");
-			//echo("iguales == $iguales -----");
-			//echo("igaules es $iguales");
-
-		}
-		//echo("iguales: $iguales");
-		if($iguales == false )
-			{
-				//echo("iguales: $iguales");
-				//echo("Cargo: $cargo");
-				if($cargo == "J3")
-				{
-					//echo("Cargo: $cargo");
-					for ($i=0; $i < $tam_array2 ; $i++)
-					{
-						//echo("|||||$cargoIgual2 != $array2[$i]||||||");
-						if($cargoIgual2 != $array2[$i])
-						$selectComponent .= "<option value='$array2[$i]'>$array2[$i]</option>";
-					}
-
-				}else
-				{
-					$selectComponent .= "<option value='$cargoActividad'>$cargoActividad</option>";
-				}
-				
-				
-				
-			}
-			$iguales=false;
-	}
-	else
-	{
-
+	if(!$alumnoActividades){
 		if($cargo == "J3")
 		{
-			//echo("Cargo: $cargo");
-			//echo("A1: $tam_array1 --- A2: $tam_array2");
-			for ($i=0; $i < $tam_array2 ; $i++)
-			{
-				//if($cargoIgual2 != $array2[$i])
-				$selectComponent .= "<option value='$array2[$i]'>$array2[$i]</option>";
-				//$selectComponent .= "none";
-			}
-
+			$selectComponent .= "<option act='$cargoActividad'>$title</option><option act='$cargoActividad2'>$title2</option>";
 		}else
 		{
-			$selectComponent .= "<option value='$cargoActividad'>$cargoActividad</option>";
-			//$selectComponent .= "none";
+			$selectComponent .= "<option act='$cargoActividad'>$title</option>";
 		}
-		//$selectComponent .= "<option value='$cargoActividad'>$cargoActividad</option>";
+		$numActividades = 0;
+		echo("$numActividades///$cve_tut///$selectComponent");
+	}else if($alumnoRegistrado)
+	{
+		echo("$numActividades///$cve_tut///$selectComponent");
+	}
+	else{
+		echo"Matricula NO VALIDA";
 	}
 
-	if(!$alumnoRegistrado){
-		echo("$mensaje");
-	}
-	else
-	{
-		echo("$numActividades///$cargoIgual///$cve_tut///$selectComponent");
-	}
+
+	//$alumnoRegistrado
+	//
+	////echo("$numActividades///$cargoIgual///$cve_tut///$selectComponent");
+	
 
 ?>

@@ -28,6 +28,7 @@
       <h1 class="display-8"> Registro de actividades complementarias tecnologicas</h1>
       <hr class="bg-info">
       <p class="text-danger small pt-0 mt-0">Todos los campos son obligatorios *</p>
+      <p id="res"></p>
   
 
     <form  > 
@@ -48,9 +49,9 @@
             <option value="Ambiental">Ambiental</option>-->
           </select>
         </div>
-        <div id="status" class="d-none col-12">
-          <center><p id="aprobado" class="d-none">ACTIVIDAD CURSADA</p></center>
-          <center><p id="registrado" class="d-none">ALUMNO INSCRITO EN ESTA ACTIVIDAD</p></center>
+        <div id="status" class="col-12" role="alert">
+          <p id="aprobado" class="text-center d-none">ACTIVIDAD CURSADA</p>
+          <p id="registrado" class="text-center d-none">ALUMNO INSCRITO EN ESTA ACTIVIDAD</p>
         </div>
         <div class="form-group col-lg-4 offset-6 pt-5">
           <input type="submit" name="enviar" class="custom-control-input" >
@@ -104,8 +105,9 @@
       });
      
      $("#btn-check").click(function(){
+      $("#inovacion").empty();
         matricula = $("#matricula").val();
-        alert(matricula);
+        //alert(matricula);
         $.ajax({
           type: "GET",
           url: "../Modelo/obtenerComplementariasValidas.php",
@@ -113,11 +115,51 @@
             matricula: matricula
           },
           success: function(dato){
-          alert(dato);
-            var dt = dato.trim();
-            $("#inovacion").empty();
-           // alert("||"+dt+"||");
-            if(dt != "none")
+           //alert(dato);
+           var arrayDatos = dato.split("///");
+           $("#res").text(dato);
+            claveT = arrayDatos[1];
+            numAct = arrayDatos[0];
+
+           if( arrayDatos[2] == "registrado" )
+           {
+              console.log("estado: registrado");
+              $("#div_complementarias").removeClass("d-none");
+
+              $("#lb_inovacion").addClass("d-none");
+              $("#inovacion").addClass("d-none");
+              $("#status").removeClass("d-none");
+              $("#status").addClass("alert-primary");
+              $("#registrado").removeClass("d-none");
+
+
+           }
+           else if( arrayDatos[2] == "aprobado" ){
+            console.log("aprobado");
+            $("#div_complementarias").removeClass("d-none");
+
+            $("#lb_inovacion").addClass("d-none");
+            $("#inovacion").addClass("d-none");
+            $("#status").removeClass("d-none");
+            $("#status").addClass("alert-success");
+            $("#aprobado").removeClass("d-none");
+
+
+           }else
+           {
+            console.log("datooooooos");
+              $("#div_complementarias").removeClass("d-none");
+              $("#lb_inovacion").removeClass("d-none");
+              $("#inovacion").removeClass("d-none");
+              $("#inovacion").append(arrayDatos[2]);
+              $("#status").addClass("d-none");
+              $("#registrado").addClass("d-none");
+              $("#aprobado").addClass("d-none");
+           }
+
+
+           /*
+           if(dt != "none")
             {
               $("#div_complementarias").removeClass("d-none");
               var arrayDatos = dato.split("///");
@@ -171,6 +213,7 @@
             }else{
               alert("MATRICULA NO VÁLIDA");
             }
+            */
 
           } 
         });
@@ -180,21 +223,25 @@
 
         //../Modelo/complementarias.php
          var act = $("#inovacion").val();
+         console.log("act: "+act);
+         var idAct = $("#inovacion option:selected").attr('act');
+         //var saldo = $('option:selected', el).attr('parametro2');
+         console.log(idAct);
 
          if(act == "Seleccione una actividad")
          {
             alert("Debe seleccionar la actividad a la que el alumno se registrara");
          }else
          {
-            act += "(registrado)";
-            alert("matricula: "+matricula+" act: "+act +"  Numero Act: "+numAct+" ClaveT: "+claveT);
+            //act += "(registrado)";
+            alert("matricula: "+matricula+" act: "+idAct +"  Numero Act: "+numAct+" ClaveT: "+claveT);
             $.ajax({
               type: "GET",
               url: "../Modelo/complementarias.php",
               data: {
                 matricula: matricula,
                 //estado: ACA,
-                actividad: act,
+                actividad: idAct,
                 numeroAct: numAct,
                 idTutor: claveT
               },
