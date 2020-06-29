@@ -1,6 +1,13 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
+  <ul class="nav pull-right">
+        <li><a href="">Bienvenido <strong><?php echo $_SESSION['dato'];?></strong></a></li>
+        <li><a class="pl-4" href="../Modelo/desconecta.php"> Cerrar Sesión </a></li>      
+    </ul>
   <meta charset="utf-8">
    <meta name="viewport" content="with=device-width,initial-scale=1,shrink-to-fit=no">
   <title>Menu LE</title>

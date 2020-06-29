@@ -1,9 +1,23 @@
- 
-<div style="text-align: right;">
-            <a href="../Vista/logpri.php" class="btn btn-danger">Regresar</a>
-          </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	
 
+<div style="text-align: left;">
+    <a href="../Vista/Inicio.php" class="btn btn-danger">
+      Regresar<i class="fas fa-arrow-left"></i> </a
+    ><button type="button" class="editar btn btn-primary">
+      <i class="fa fa-pencil-square-o"></i>
+    </button>
+	</div>
+ </body>
 </html>
+
  <?php
 include("../Modelo/conexion1.php");
 
@@ -13,7 +27,6 @@ $contraseña2=$_POST['contraseña2'];
 $idRoles= "rol02";
 $mensaje= 0;
 //echo $mat,$contraseña1, $contraseña2;
-
 		
 
 if($contraseña1 == $contraseña2){

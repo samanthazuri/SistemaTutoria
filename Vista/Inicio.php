@@ -1,6 +1,13 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
+  <ul class="nav pull-right">
+        <li><a href="">Bienvenido <strong><?php echo $_SESSION['dato'];?></strong></a></li>
+        <li><a class="pl-4" href="../Modelo/desconecta.php"> Cerrar Sesión </a></li>      
+    </ul>
   <meta charset="utf-8">
    <meta name="viewport" content="with=device-width,initial-scale=1,shrink-to-fit=no">
   <title>Bienvenido Tutor</title>
@@ -42,7 +49,7 @@
             
       
             <div class="dropdown-divider"></div>
-              <a id="extVin" class="dropdown-item" href="../Vista/extraescolares.html">Actividades extra escolares</a>
+              <a id="extVin" class="dropdown-item" href="../Vista/actExtraEscolaresParaTutores.html">Actividades extra escolares</a>
               <a id="" class="dropdown-item" href="../Vista/actividades-tutorias.html">Actividades del manual de tutorias</a>
               <a id="" class="dropdown-item" href="../Vista/alumnos-tutor.html">Actividades linea de vida y foda</a>
             <div class="dropdown-divider"></div>
@@ -65,7 +72,6 @@
         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Reportes</a>
         <div  class="dropdown-menu" aria-labelledby="navbarDropdown">
           <div class="dropdown-divider"></div>
-            <a id="reportes" class="dropdown-item" href="#">Reportes de tutoria</a>
             <a class="dropdown-item" href="../Vista/pat.html">Plan de tutoria</a>
           <div class="dropdown-divider"></div>
       </li>
@@ -113,12 +119,6 @@
     $("#ingles").click(function(){
 
       location.href="../Vista/regisingles.php";
-    });
-
-    
-    $("#reportes").click(function(){
-
-      location.href="../Vista/menuCT.html";
     });
 
     $("#mostrar").click(function(){

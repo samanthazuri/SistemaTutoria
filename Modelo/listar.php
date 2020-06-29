@@ -14,10 +14,16 @@
 
 	} else if($cargo == "J3")
 	{
-		$cargoActividad = "act_deportiva";
-		$cargoActividad2 = "act_cultural_civica";
-		$title = "Atividad deportiva";
-		$title2 = "Atividad civica";
+		$cargoActividad = $_SESSION['J3Opc'];
+		//$cargoActividad2 = "act_cultural_civica";
+		if($cargoActividad == "act_deportiva")
+		{
+			$title = "Atividad deportiva";
+		}
+		else
+		{	
+			$title2 = "Atividad civica";
+		}
 
 
 
@@ -35,7 +41,7 @@
 	//$_COOKIE["nom_act"] = $cargoActividad;
 	setcookie("nom_act", $cargoActividad);
 
-	if($cargo == "J3")
+	/*if($cargo == "J3")
 	{
 
 		jefeJ3($cargoActividad, $cargoActividad2);
@@ -43,10 +49,10 @@
 
 	}
 	else
-	{
+	{*/
 		jefes($cargoActividad );
 		setcookie("nom_act", $cargoActividad);
-	}
+	//}
 
 
 	function jefeJ3($cargoActividad, $cargoActividad2){
@@ -57,6 +63,7 @@
 		INNER JOIN alumno ON alumno.matricula = act_complementarias2.matricula
 		WHERE act_complementarias2.$cargoActividad = 'registrado' || act_complementarias2.$cargoActividad2 = 'registrado'";
 		$resultado = mysqli_query($conexion, $query);
+
 
 		if( !$resultado)
 		{

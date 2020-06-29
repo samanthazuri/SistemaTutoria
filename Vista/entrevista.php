@@ -3,160 +3,112 @@
 <head>
   <meta charset="utf-8">
    <meta name="viewport" content="with=device-width,initial-scale=1,shrink-to-fit=no">
-  <title>Formato de entrevista</title>
-  <link href="https://fonts.googleapis.com/css?family=Francois+One" rel="stylesheet">
+  <title>Inventario estudio</title>
   <link rel="stylesheet" href="../css/bootstrap.min.css">
   <link rel="stylesheet" href="../css/estilos.css">
+</head>
+  <body>
+ <section id="cover">
+     <div class="container-fluid">
+       <div class="row">
+         <div class="col-sm-12">
+         </div>
+       </div>
+     </div>
+ </section>
 
-  <style>
-      .container{margin-top:100px}
-    </style>
-   </head>
+    <div class="container">
+      <h1 class="display3">TEST DE ASERTIVIDAD.</h1><br>
+      <h4>Instrucciones:</h4>
 
-     <body>
-
-      <div class="container">
-
-
- <?php if(!empty($message)):?>
-  <p><?= $message ?></p>
-  <?php endif;?>
-
-   
-    
-    <div class="conntainer">
-      <div class="row justify-content-center mt-5 pt-5">
-      <div class="col-md-7">
-      <h1 class="display-8"> Formato de entrevista</h1>
-      <hr class="bg-info">
-      <p class="text-danger small pt-0 mt-0">Todos los campos son obligatorios *</p>
-    
-
-    <form  action = "../Modelo/data.php "  method = "POST">
-      <div class="row from-group">
-        <label for="nombre" class="col-form-label col-md-4">Nombre</label>
-        <div class="col-md-8">
-        <input  name = "name"  type = "text"   class="form-control" required>
-        </div>  
-      </div><br>
-      <div class="row from-group">
-        <label for="estatura" class="col-form-label col-md-4">Estatura</label>
-        <div class="col-md-8">
-        <input  name = "nestatura"  type = "text1"  class="form-control" required>
-        </div>  
-      </div><br>
-      <div class="row from-group">
-        <label for="peso" class="col-form-label col-md-4">Peso</label>
-        <div class="col-md-8">
-        <input  name = "peso"  type = "text" class="form-control" required>
-        </div>  
-      </div><br>
-      <div class="row from-group">
-        <label for="carrera" class="col-form-label col-md-4">Carrera</label>
-        <div class="col-md-8">
-	      <input  name = "Carrera"  type = "text"  class="form-control" required>
-        </div>  
-      </div><br>
-      <div class="row from-group">
-        <label for="fechanac" class="col-form-label col-md-4">Fecha de nacimiento</label>
-        <div class="col-md-8">
-        <input  name = "fechanac"  type = "text"  class="form-control" required>
-        </div>  
-      </div><br>
-      <div class="row from-group">
-        <label for="sexo" class="col-form-label col-md-4">Sexo</label>
-        <div class="col-md-8">
-        <input  name = "sexo"  type = "text"   class="form-control" required>
-        </div>  
-      </div><br>
-      <div class="row from-group">
-        <label for="edad" class="col-form-label col-md-4">Edad</label>
-           <div class="col-md-8">
-        <input  name = "edad"  type = "text"   class="form-control" required>
-      </div></div><br>
-     <!-- <div class="row from-group">
-       <div class="form-check form-check-inline">
-      <a  class="lead">Estado civil</a><br>
-     <div class="custom-control custom-radio col-md-10 offset-6">
-    <input type="radio" class="custom-control-input" id="soltero"  name="edocivil">
-    <label class="custom-control-label" for="radio1" >Soltero</label>
-  </div>
-  <div class="custom-control custom-radio mb-11 offset-7">
-    <input type="radio" class="custom-control-input" id="casado"  name="edocivil">
-    <label class="custom-control-label" for="radio1b">Casado</label>
-  </div>
-  <div class="custom-control custom-radio col-md-12 offset-8">
-    <input type="radio" class="custom-control-input" id="otro"  name="edocivil">
-    <label class="custom-control-label" for="radio1" >Otro</label>
-  </div>
-  </div>
-  <br> <br>
-  <div class="row from-group">
-      <a class="lead">Trabaja</a><br>
-      <div class="form-check form-check-inline">
-           <label class="form-check-label">
-            <input type="radio" class="custom-control-input"  name="vivienda" value="home" re>SI</label>
-            <label class="custom-control-input">
-            <input type="radio" class="form-check-input" name="vivienda" value="depto">NO</label>
-        </div> <br>-->
-      <div class="row from-group">
-        <label for="lnacimiento" class="col-form-label col-md-4">Lugar de nacimiento</label>
-        <div class="col-md-8">
-	      <input  name = "lnacimiento"  type = "text" class="form-control" required>
-        </div>  
-      </div><br>
-   <div class="row from-group">
-        <label for="domicilio" class="col-form-label col-md-4">Domicilio actual</label>
-        <div class="col-md-8">
-        <input  name = "domicilio"  type = "text" class="form-control" required>
-        </div>  
-      </div><br>
-       <div class="row from-group">
-        <label for="oldfrom" class="col-form-label col-md-4">Lugar de nacimiento</label>
-        <div class="col-md-8">
-        <input  name = "oldfrom"  type = "text" class="form-control" required>
-        </div>
-      </div><br>
-       <div class="row from-group">
-        <label for="co" class="col-form-label col-md-4">Codigo postal</label>
-        <div class="col-md-8">
-        <input  name = "co"  type = "text" class="form-control" required>
-        </div>  
-      </div><br> 
-       <div class="row from-group">
-        <label for="tel" class="col-form-label col-md-4">Telefono</label>
-        <div class="col-md-8">
-        <input  name = "tel"  type = "text" class="form-control" required>
-        </div>  
-      </div><br><br>
-     <!-- <div class="row from-group">
-        <label for="" class="col-form-label col-md-4">Tipo de vivienda</label>
-        <div class="form-check form-check-inline">
-           <label class="form-check-label">
-            <input type="radio" class="form-check-input"  name="vivienda" value="home" re>Casa</label>
-            <label class="form-check-label">
-            <input type="radio" class="form-check-input" name="vivienda" value="depto">Departamento</label>
-        </div>  
-      </div><br>-->
-
-       <div class="row from-group">
-        <label for="domicilio" class="col-form-label col-md-4">Email</label>
-        <div class="col-md-8">
-        <input  name = "email"  type = "email" class="form-control" required>
-        </div>  
-      </div><br>  <br>    
-       
-      <div class="form-group col-lg-4 offset-6">
-          <input type="submit" name="enviar" class="custom-control-input" >
-          <button  id="btnenviar" class="form-control btn-success">Enviar</button>
-        </div>
-    </form>
+    <div class="row align-items-center">
+    <div class="col-sm-12 col-sm-12 col-md 4">
+      <p>
+        Seleccione la opción que mas le indentifique.
+     </p>
+    </div>
   </div>
 </div>
-</div>
-</div>
+<br>
+  <section id="tets">
+   <div class="container">
+    <form action="../Modelo/resEntrevista.php" method="POST" id="formulario">
+      <a class="lead">1-En una reunión difícil, con un ambiente caldeado, soy capaz de hablar con confianza. </a><br>
+      <div class="custom-control custom-radio">
+    <select name="radio1" id="radio1" required="">
+      <option value=""></option>
+          <option value="SI">Si</option>
+          <option values="NO">No</>
+        </select></div>
+  <br>
+  <a class="lead">2-Si no estoy segura de una cosa, puedo pedir ayuda fácilmente.</a><br>
+      <div class="custom-control custom-radio">
+    <select name="radio2" id="radio2" required="">
+      <option value=""></option>
+          <option value="SI">Si</option>
+          <option values="NO">No</option>
+        </select> </div>  
+  <br>
+  <a class="lead">3-Si alguna persona es injusta y agresiva, puedo controlar la situación con confianza. </a><br>
+      <div class="custom-control custom-radio">
+    <select name="radio3" id="radio3" required="">
+      <option value=""></option>
+          <option value="SI">Si</option>
+          <option values="NO">No</option>
+        </select> </div><br>    
+  <a class="lead">4-Si alguna persona se muestra irónica conmigo o con otras, puedo responder sin agresividad. </a><br>
+      <div class="custom-control custom-radio">
+    <select name="radio4" id="radio4" required="">
+      <option value=""></option>
+          <option value="SI">Si</option>
+          <option values="NO">No</option>
+        </select> </div>  <br>
+  <a class="lead">5-Si creo que se está abusando de mí, soy capaz de denunciarlo sin alterarme. . </a><br>
+      <div class="custom-control custom-radio">
+    <select name="radio5" id="radio5" required="">
+      <option value=""></option>
+          <option value="SI">Si</option>
+          <option values="NO">No</option>
+        </select> </div><br>
+  <a class="lead">6-Si alguna persona me pide permiso para hacer algo que no me gusta, por ejemplo, fumar, puedo decirle que no sin sentirme culpable. </a><br>
+      <div class="custom-control custom-radio">
+    <select name="radio6" id="radio6" required="">
+      <option value=""></option>
+          <option value="SI">Si</option>
+          <option values="NO">No</option>
+        </select> </div> <br> 
+  <a class="lead">7-Si alguna persona pide mi opinión sobre alguna cosa me siento bien dándosela, aunque no concuerde con la de los demás. </a><br>
+      <div class="custom-control custom-radio">
+    <select name="radio7" id="radio7" required="">
+      <option value=""></option>
+          <option value="SI">Si</option>
+          <option values="NO">No</option>
+        </select> </div><br> 
+  <a class="lead">8-Puedo conectar fácil y efectivamente con personas que considero importantes.  </a><br>
+      <div class="custom-control custom-radio">
+    <select name="radio8" id="radio8" required="">
+      <option value=""></option>
+          <option value="SI">Si</option>
+          <option values="NO">No</option>
+        </select> </div><br> 
+  <a class="lead">9-Cuando encuentro defectos en una tienda o restaurante, soy capaz de exponerlos sin atacar a las otras personas y sin sentirme mal.</a><br>
+      <div class="custom-control custom-radio">
+    <select name="radio9" id="radio9" required="">
+      <option value=""></option>
+          <option value="SI">Si</option>
+          <option values="NO">No</option>
+        </select> </div><br> 
+
+        <div class="form-group col-lg-3 offset-5">
+          
+          <button  id="btnenviar" type="submit" class="form-control btn-success">Enviar</button>
+        </div>   
+        <div class="form-group col-lg-3 offset-5">
+          <button  id="btncancel" class="form-control btn-danger">Cancelar</button>
+        </div>   
+</form>
 </body>
-
+</selection>
 
 
 
@@ -168,4 +120,12 @@
   <script type="text/javascript" src="../js/bootstrap.bundle.min.js"></script>
   <script type="text/javascript" src="../js/popper.min.js"></script>
 
-  </html>
+  <script>
+ $(function(){
+
+      $("#btncancel").click(function(){        
+          window.location="../Vista/menualum.php";
+          });   
+    });
+      </script>
+  

@@ -1,9 +1,9 @@
 <?php
-	require("conexion1.php");
+	require("conexion1.php");	
 	session_start();
 
 	$tabla = "";
-	$id_p = $_SESSION['dato'];
+	$carrera = $_SESSION['dato'];
 
 
 	$consulta = "SELECT tutor.id_p, tutor.pat, personal.nombre, personal.apellido_pat, personal.apellido_mat, personal.cve_division 

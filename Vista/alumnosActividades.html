@@ -1,28 +1,29 @@
-<?php
-	include ("../Modelo/conexion1.php");
-	session_start();
-	$ActvidadF = "No registrado";
-	$cargo = $_SESSION['tipoJefe'];
-?>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-		<link href="https://fonts.googleapis.com/css?family=Francois+One" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="../css/datatables.min.css">
-  		<link rel="stylesheet" href="../css/bootstrap.min.css">
-  		<link rel="stylesheet" href="../css/estilos.css">
-		<meta charset="UTF-8">
-	<title>Actividades</title>
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css?family=Francois+One"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="../css/datatables.min.css" />
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/estilos.css" />
+    <meta charset="UTF-8" />
+    <title>Actividades</title>
+  </head>
+  <div style="text-align: left;">
+    <a href="../Vista/divisiones.php" class="btn btn-danger">
+      Regresar<i class="fas fa-arrow-left"></i> </a
+    ><button type="button" class="editar btn btn-primary">
+      <i class="fa fa-pencil-square-o"></i>
+    </button>
+  </div>
+  <style>
+    tbody {
+      background-color: #fff;
+    }
 
-</head>
-
-<style>
-	tbody
-	{
-		background-color: #fff;
-	}
-
-        /*#dt_Alumnos
+    /*#dt_Alumnos
         {
             width: 100%;
         }
@@ -42,249 +43,185 @@
             width: 100%;
             font-size: 12px;
         }*/
+  </style>
+  <body>
+    <div class="container">
+      <h1 id="titulo" class="text-center">ALUMNOS ACTIVIDADES</h1>
+      <div class="row">
+        <!--class="table table-responsive table-sm table-hover"-->
+        <!--<div class="table-responsive col-sm-12">		-->
+        <table
+          id="dt_Alumnos"
+          class="table table-responsive table-hover"
+          style="background-color: #73b1dd;"
+        ></table>
+        <!--</div>				-->
+      </div>
+    </div>
+  </body>
 
-    
-</style>
-<body>
-	<div class="container">
-		<h1 class="text-center">ALUMNOS ACTIVIDADES</h1>
-		<div class="row">
-			<!--class="table table-responsive table-sm table-hover"-->
-			<!--<div class="table-responsive col-sm-12">		-->
-				<table id="dt_Alumnos" class="table table-responsive table-hover" 
-				style="background-color: #73b1dd">
-					<!--<thead >
-						<tr>								
-							<th >Matricula</th>
-                            <th >Nombre</th>
-                            <th >Apellidos</th>
-                            <th >Carrera</th>
-                            <th >Semestre</th>
-                            <th >Actividad</th>
-                            											
-						</tr>
-					</thead>
-					<thead  class="filters_Alumnos">
-						<tr>								
-							<th >Matricula</th>
-                            <th >Nombre</th>
-                            <th >Apellidos</th>
-                            <th >Carrera</th>
-                            <th >Semestre</th>
-                            <th >Actividad</th>
-                            											
-						</tr>
-					</thead>-->
-					<!--
-						"matricula" => $row['matricula'], 
-				"nombre_s" => $row['nombre_s'], 
-				"apellidos"=> $row['ap_pat']." ".$row['ap_mat'],
-				"cve_div"=> $row['cve_div'],
-				"semestre"=> $row['semestre'],
-				"nom_act"=>$ActvidadF
-					<thead class="filters_Alumnos" style="background-color: #73b1dd">
-                         <tr>
-                            <th scope="col">Matricula</th>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Apellidos</th>
-                            <th scope="col">Carrera</th>
-                            <th scope="col">Semestre</th>
-                            <th scope="col">Actividad</th>
-                            <th scope="col"></th>
-                         </tr>
-                     </thead>-->				
-				</table>
-			<!--</div>				-->
-		</div>
-	</div>
-	
-</body>
+  <script type="text/javascript" src="../js/popper.min.js"></script>
+  <script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+  <script src="../js/datatables.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <!--<script type="text/javascript" src="../js/bootstrap.bundle.min.js"></script>-->
 
-<script type="text/javascript" src="../js/popper.min.js"></script> 
-<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
-<script src="../js/datatables.min.js"></script>
-<script src="../js/bootstrap.min.js"></script>
-<!--<script type="text/javascript" src="../js/bootstrap.bundle.min.js"></script>-->
+  <script>
+    $(document).ready(function () {
+      var tipoJefe = "";
+      var opc = "";
+      var json;
+      //validarJefe();
+      debugger;
+      listar();
+    });
+    //var dt;
+    var listar = function () {
+      $.ajax({
+        url: "../Modelo/listar.php",
+        type: "POST",
+        dataType: "json",
+        success: function (dato) {
+          //alert(dato);
+          //var dt = dato.['0'];
+          //console.log(dato);
+          //console.log(dato[0]);
+          var count = Object.keys(dato[0]).length;
+          //var json = JSON.parse(dato);
+          //console.log("sdas: "+count);
+          //dt = dato;
+          //$("#titulo").text("ALUMNOS ACTIVIDAD: "+dato[0]["nom_act"]);
+          if (count == 8) {
+            var table = $("#dt_Alumnos").DataTable({
+              destroy: true,
+              data: dato,
+              dataType: "json",
+              columns: [
+                { data: "matricula", title: "Matricula" },
+                { data: "nombre_s", title: "Nombre" },
+                { data: "apellidos", title: "Apellido" },
+                { data: "cve_div", title: "Carrera" },
+                { data: "semestre", title: "Semestre" },
+                { data: "numAct", title: "Num Actividades" },
+                { data: "tutor", title: "Tutor" },
+                { data: "nom_act", title: "Acción" },
+                //{"defaultContent": "<button type='button' class='btn btn-success btn-sm aprobar'>Aprobar</button>	<button type='button' class='btn btn-danger btn-sm reprobar'>Reprobar</button>"}
+              ],
+            });
+          } else {
+            var table = $("#dt_Alumnos").DataTable({
+              destroy: true,
+              data: dato,
+              dataType: "json",
+              columns: [
+                { data: "matricula", title: "Matricula" },
+                { data: "nombre_s", title: "Nombre" },
+                { data: "apellidos", title: "Apellido" },
+                { data: "cve_div", title: "Carrera" },
+                { data: "semestre", title: "Semestre" },
+                { data: "numAct", title: "Num Actividades" },
+                { data: "tutor", title: "Tutor" },
+                { data: "nom_act", title: "Deportiva" },
+                { data: "nom_act2", title: "Cultural" },
+                //{"defaultContent": "<button type='button' class='btn btn-success btn-sm aprobar'>Aprobar</button>	<button type='button' class='btn btn-danger btn-sm reprobar'>Reprobar</button>"}
+              ],
+            });
+          }
 
+          var tbody = $("#dt_Alumnos tbody");
 
-<script>
-	$(document).ready(function(){
-		var tipoJefe = "";
-		var opc= "";
-		var json;
-			//validarJefe();
-			listar();
-			
-		
-		});
-//var dt;
-	var listar = function(){
-		$.ajax({
-				url: "../Modelo/listar.php",
-				type: "POST",
-				dataType: "json",
-				success: function(dato){
-					alert(dato);
-					//var dt = dato.['0'];
-					console.log(dato);
-					console.log(dato[0]);
-					var count = Object.keys(dato[0]).length;
-					console.log("sdas: "+count);
-					//dt = dato;
-					//
-					if(count == 8)
-					{
-						var table = $("#dt_Alumnos").DataTable({
-							destroy: true,
-							data: dato,
-							dataType:'json',
-							columns: [
-								{"data": "matricula", "title": "Matricula"},
-								{"data": "nombre_s", "title": "Nombre"},
-								{"data": "apellidos", "title": "Apellido"},
-								{"data": "cve_div", "title": "Carrera"},
-								{"data": "semestre", "title": "Semestre"},
-								{"data": "numAct", "title": "Num Actividades"},
-								{"data": "tutor", "title": "Tutor"},
-								{"data": "nom_act", "title": "Actividad"}
-								//{"defaultContent": "<button type='button' class='btn btn-success btn-sm aprobar'>Aprobar</button>	<button type='button' class='btn btn-danger btn-sm reprobar'>Reprobar</button>"}
-							]
-						});
-					}
-					else
-					{
-						var table = $("#dt_Alumnos").DataTable({
-							destroy: true,
-							data: dato,
-							dataType:'json',
-							columns: [
-								{"data": "matricula", "title": "Matricula"},
-								{"data": "nombre_s", "title": "Nombre"},
-								{"data": "apellidos", "title": "Apellido"},
-								{"data": "cve_div", "title": "Carrera"},
-								{"data": "semestre", "title": "Semestre"},
-								{"data": "numAct", "title": "Num Actividades"},
-								{"data": "tutor", "title": "Tutor"},
-								{"data": "nom_act", "title": "Deportiva"},
-								{"data": "nom_act2", "title": "Cultural"}
-								//{"defaultContent": "<button type='button' class='btn btn-success btn-sm aprobar'>Aprobar</button>	<button type='button' class='btn btn-danger btn-sm reprobar'>Reprobar</button>"}
-							]
+          //formato_datatable();
+          aprobar(table, tbody);
+          reprobar(table, tbody);
+          //var nomAct = Cookies.get('nom_act');
+          //alert("asas"+nomAct);
 
-						});
-					}
-					
-					var tbody = $("#dt_Alumnos tbody");
-
-					//formato_datatable();
-					aprobar(table, tbody);
-					reprobar(table, tbody);
-					//var nomAct = Cookies.get('nom_act');
-					//alert("asas"+nomAct);
-
-					
- 
-					/*$('#dt_Alumnos tbody').on( 'click', '.aprobar', function () {
+          /*$('#dt_Alumnos tbody').on( 'click', '.aprobar', function () {
     					table
         					.row( $(this).parents('tr') )
         					.remove()
         					.draw();
 					} );*/
-					
-				}
-			});
+        },
+      });
+    };
 
-		
-	}
+    var aprobar = function (table, tbody) {
+      $(tbody).on("click", ".aprobar", function () {
+        opc = "aprobar";
+        var data = table.row($(this).parents("tr")).data();
+        var idAlumno = data.matricula;
 
-	var aprobar = function(table, tbody){
-		
-		$(tbody).on("click",".aprobar", function(){
-			opc = "aprobar";
-			var data = table.row( $(this).parents("tr") ).data();
-			var idAlumno = data.matricula;
+        var act2 = $(this).attr("act");
+        //console.log("idAlumno: "+idAlumno+" opc: "+opc +" act2: "+act2);
 
-			var act2 = $(this).attr("act");
-			console.log("idAlumno: "+idAlumno+" opc: "+opc +" act2: "+act2);
+        json = JSON.stringify({ matricula: idAlumno, opc: opc, act2: act2 });
+        //console.log(json);
+        if (confirm("¿Seguro de que desea " + opc + " a este alumno?")) {
+          table.row($(this).parents("tr")).remove().draw();
+          var tb = table;
+          $.ajax({
+            url: "../Modelo/resultadoComplementaria.php",
+            type: "GET",
+            data: { json: json },
+            success: function (response) {
+              alert(response);
+            },
+          });
+        }
+      });
+    };
 
-			json = JSON.stringify({matricula: idAlumno, opc: opc, act2: act2});
-			console.log(json);
-			if(confirm("¿Seguro de que desea "+opc+" a este alumno?"))
-             {
-             	table
-        		.row( $(this).parents('tr') )
-        		.remove()
-        		.draw();
-			var tb = table;
-             	$.ajax({
-             		url: "../Modelo/resultadoComplementaria.php",
-             		type: "GET",
-             		data: {json: json},
-             		success: function(response){
-             			alert(response);
-             		}
-             	});
-             }
-		});
-	}
+    var reprobar = function (table, tbody) {
+      $(tbody).on("click", ".reprobar", function () {
+        opc = "reprobar";
+        var data = table.row($(this).parents("tr")).data();
+        var idAlumno = data.matricula;
+        var act2 = $(this).attr("act");
+        //console.log(act2);
 
-	var reprobar = function(table, tbody){
+        json = JSON.stringify({ matricula: idAlumno, opc: opc, act2: act2 });
+        if (confirm("¿Seguro de que desea " + opc + " a este alumno?")) {
+          table.row($(this).parents("tr")).remove().draw();
+          var tb = table;
+          $.ajax({
+            url: "../Modelo/resultadoComplementaria.php",
+            type: "GET",
+            data: { json: json },
+            success: function (response) {
+              //alert(response);
+            },
+          });
+        }
+      });
+    };
 
-		
-		$(tbody).on("click",".reprobar", function(){
-			opc = "reprobar";
-			var data = table.row( $(this).parents("tr") ).data();
-			var idAlumno = data.matricula;
-			var act2 = $(this).attr("act");
-			console.log(act2);
-			
-			json = JSON.stringify({matricula: idAlumno, opc: opc, act2: act2});
-			if(confirm("¿Seguro de que desea "+opc+" a este alumno?"))
-             {
-             	table
-        		.row( $(this).parents('tr') )
-        		.remove()
-        		.draw();
-			var tb = table;
-             	$.ajax({
-             		url: "../Modelo/resultadoComplementaria.php",
-             		type: "GET",
-             		data: {json: json},
-             		success: function(response){
-             			alert(response);
-             		}
-             	});
-             }
-		});
-	}
+    var formato_datatable = function () {
+      $("#dt_Alumnos .filters_Alumnos th").each(function () {
+        var title = $("#dt_Alumnos thead th").eq($(this).index()).text();
+        if (title != "") {
+          $(this).html(
+            '<input class="inpTutorados" type="text" placeholder="Buscaraa" />'
+          );
+        }
+      });
 
-		var formato_datatable = function(){
-		$('#dt_Alumnos .filters_Alumnos th').each( function () {
-                    	var title = $('#dt_Alumnos thead th').eq( $(this).index() ).text();
-                    	if( title != ""){
-                    		$(this).html( '<input class="inpTutorados" type="text" placeholder="Buscaraa" />' );
-                    		}
-                    
-                	});
+      var table = $("#dt_Alumnos").DataTable();
 
+      // Apply the search
+      table
+        .columns()
+        .eq(0)
+        .each(function (colIdx) {
+          $("input", $(".filters_Alumnos th")[colIdx]).on(
+            "keyup change",
+            function () {
+              table.column(colIdx).search(this.value).draw();
+            }
+          );
+        });
 
-                	var table = $('#dt_Alumnos').DataTable();
- 
-                    // Apply the search
-                table.columns().eq( 0 ).each( function ( colIdx ) {
-                    $( 'input', $('.filters_Alumnos th')[colIdx] ).on( 'keyup change', function () {
-                       table
-                            .column( colIdx )
-                            .search( this.value )
-                            .draw();
-                    });
-                });
-
-                $("#dt_Alumnos_filter").addClass("d-none");
-	}
-
-	
-
-	
-</script>
-
+      $("#dt_Alumnos_filter").addClass("d-none");
+    };
+  </script>
 </html>

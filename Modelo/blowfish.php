@@ -21,8 +21,4 @@
         return crypt($pass, $hash) == $hash;
     }
 
-
-
-
-
 ?>

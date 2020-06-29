@@ -1,238 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
 
-	<link rel="stylesheet" type="text/css" href="../css/datatables.min.css">
-	<link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/estilos.css">
-	
-	<title>Selecciona de tutorados</title>
-    
+    <link rel="stylesheet" type="text/css" href="../css/datatables.min.css" />
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/estilos.css" />
+
+    <title>Selecciona de tutorados</title>
+
     <style>
-        #tabla_Tutorados
-        {
-            width: 100%;
-        }
-        
-        #tabla_Tutorados_wrapper
-        {
-            width: 100%;
-        }
-        
-        #tabla_Tutorados th
-        {
-            width: 2%;
-            
-        }
-        .inpTutorados
-        {
-            width: 100%;
-            font-size: 12px;
-        }
+      #tabla_Tutorados {
+        width: 100%;
+      }
 
+      #tabla_Tutorados_wrapper {
+        width: 100%;
+      }
+
+      #tabla_Tutorados th {
+        width: 2%;
+      }
+      .inpTutorados {
+        width: 100%;
+        font-size: 12px;
+      }
     </style>
+  </head>
+  <body>
+    <div style="text-align: left;">
+      <a href="../Vista/Inicio.php" class="btn btn-danger">
+        Regresar<i class="fas fa-arrow-left"></i> </a
+      ><button type="button" class="editar btn btn-primary">
+        <i class="fa fa-pencil-square-o"></i>
+      </button>
+    </div>
+    <div class="container">
+      <div>
+        <h3 class="pt-1 mt-1">TUTORADOS</h3>
+        <hr />
 
+        <div>
+          <table
+            class="table table-responsive table-sm table-hover"
+            id="tabla_Tutorados"
+          >
+            <thead class="" style="background-color: #73b1dd;">
+              <tr>
+                <th scope="col">Matricula</th>
+                <th scope="col">Nombre</th>
+                <th scope="col" id="th_Apellidos">Apellidos</th>
+                <th scope="col">Semestre</th>
+                <th scope="col">Grupo</th>
+                <th scope="col">Foda</th>
+                <th scope="col">Linea de vida</th>
+              </tr>
+            </thead>
 
-</head>
-<body>
+            <thead class="filters_Tutorados" style="background-color: #73b1dd;">
+              <tr>
+                <th scope="col">Matricula</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellidos</th>
+                <th scope="col">Semestre</th>
+                <th scope="col">Grupo</th>
+                <th scope="col">Foda</th>
+                <th scope="col">Linea de vida</th>
+              </tr>
+            </thead>
 
-	<div class="container">
-
-		<div>
-
-			<h3 class="pt-1 mt-1">TUTORADOS</h3>
-			<hr>
-			
-			<div>
-				<table  class="table table-responsive table-sm table-hover" id="tabla_Tutorados">
-                     <thead class="" style="background-color: #73b1dd">
-                         <tr>
-                     
-                         
-                         <th scope="col">Matricula</th>
-                         <th scope="col">Nombre</th>
-                         <th scope="col" id="th_Apellidos">Apellidos</th>
-                         <th scope="col">Semestre</th>
-                         <th scope="col">Grupo</th>
-                         <th scope="col">Foda</th>
-                         <th scope="col">Linea de vida</th>
-                    
-                         </tr>
-                     </thead>
-
-                     <thead class="filters_Tutorados" style="background-color: #73b1dd">
-                         <tr>
-                             
-                             <th scope="col">Matricula</th>
-                             <th scope="col">Nombre</th>
-                             <th scope="col">Apellidos</th>
-                             <th scope="col">Semestre</th>
-                             <th scope="col">Grupo</th>
-                             <th scope="col">Foda</th>
-                             <th scope="col">Linea de vida</th>
-                         </tr>
-                     </thead>
-
-                     <tbody id="tbody_Tutorados"></tbody>
-                </table>
-                <form method="POST" enctype="multipart/form-data" action="tutorados_Seleccionados.php">
-					<input id="MaterialSelect" name="MaterialSelect" type="text" class="d-none">
-                	<button id="btn-tutoradosSelect" type="submit" class="btn btn-success">Guardar</button>
-                </form>
-			</div>
-		</div>
-		
-	</div>
+            <tbody id="tbody_Tutorados"></tbody>
+          </table>
+          <form
+            method="POST"
+            enctype="multipart/form-data"
+            action="tutorados_Seleccionados.php"
+          >
+            <input
+              id="MaterialSelect"
+              name="MaterialSelect"
+              type="text"
+              class="d-none"
+            />
+            <button
+              id="btn-tutoradosSelect"
+              type="submit"
+              class="btn btn-success"
+            >
+              Guardar
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
     <!--<a href='$dest'>$file</a>-->
-    
-	
-</body>
-<script src="../js/bootstrap.min.js"></script><!--librerias-->
-<script src="../js/jquery.validate.min.js"></script>
-<script src="../js/jqBootstrapValidation.js"></script> 
-<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
-<script type="text/javascript" src="../js/bootstrap.bundle.min.js"></script>
-<script type="text/javascript" src="../js/popper.min.js"></script>
-<script src="../js/datatables.min.js"></script>
+  </body>
+  <script src="../js/bootstrap.min.js"></script>
+  <!--librerias-->
+  <script src="../js/jquery.validate.min.js"></script>
+  <script src="../js/jqBootstrapValidation.js"></script>
+  <script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="../js/bootstrap.bundle.min.js"></script>
+  <script type="text/javascript" src="../js/popper.min.js"></script>
+  <script src="../js/datatables.min.js"></script>
 
-<script >
-  	$(document).ready(function(){
-      
+  <script>
+    $(document).ready(function () {
+      var tutorados = "";
+      var contadorFormatos = 0;
+      var cadena = "";
 
-
-		
-  			var tutorados ="";
-  			var contadorFormatos = 0;
-  			var cadena="";
-
-
-  		//$("").click(function(){
-  		//$("#btn-tutoradosSelect").on('click', function(){
-  			//$("#tabla_Tutorados tbody").on('change','tr', function(){
-  			//$(".cbTutorado:checked").on('each', function(){
-        	/*$(".cbTutorado:checked").each(function(){
+      //$("").click(function(){
+      //$("#btn-tutoradosSelect").on('click', function(){
+      //$("#tabla_Tutorados tbody").on('change','tr', function(){
+      //$(".cbTutorado:checked").on('each', function(){
+      /*$(".cbTutorado:checked").each(function(){
         		alert($(this).attr("matricula"));
     		});*/
-    	//});
+      //});
 
-    	$("#tabla_Tutorados").on('change', '.cbTutorado', function(){
-               // if(confirm("¿Seguro de que desea marcar como enterado?")){
-                    var id_Mat = $(this).attr("matricula");
-                    var estado = $(this).prop("checked");
-                    //alert(id_Mat+" "+estado);
-                    var val = $(this).val();
-                   // alert(cadena+"|"+contadorFormatos);
-                   
-                    if(contadorFormatos < 1200)
-                    {
-                    	//alert("1");
-                        if(estado)
-                        {
-                        	//alert("2");
-                            contadorFormatos++;
-                            cadena += id_Mat+"|";
-                            //alert(cadena);
-                        }
-                        else
-                        {
-                            contadorFormatos--;
-                            var arregloFormato = cadena.split("|");
-                            cadena = "";
-                            //alert("menos: "+(arregloFormato.length - 1));
-                            for (var i = 0 ; i < (arregloFormato.length - 1); i++) {
-                                //alert(arregloFormato[i] + "!=" + id_Mat);
-                                if(arregloFormato[i] != id_Mat)
-                                {
-                                    cadena += arregloFormato[i]+"|";
-                                    //alert("nueva: "+cadena);
-                                }
-                                
-                            }
+      $("#tabla_Tutorados").on("change", ".cbTutorado", function () {
+        // if(confirm("¿Seguro de que desea marcar como enterado?")){
+        var id_Mat = $(this).attr("matricula");
+        var estado = $(this).prop("checked");
+        //alert(id_Mat+" "+estado);
+        var val = $(this).val();
+        // alert(cadena+"|"+contadorFormatos);
 
-                        }
-                    }
-                    else if(!estado)
-                    {
-                        contadorFormatos--;
-                        $(this).prop("checked",false);
-                        var arregloFormato = cadena.split("|");
-                            cadena = "";
-                            //alert("menos: "+(arregloFormato.length - 1));
-                            for (var i = 0 ; i < (arregloFormato.length - 1); i++) {
-                                //alert(arregloFormato[i] + "!=" + id_Mat);
-                                if(arregloFormato[i] != id_Mat)
-                                {
-                                    cadena += arregloFormato[i]+"|";
-                                    //alert("nueva: "+cadena);
-                                }
-                                
-                            }
-                    }
-                    else
-                    {
-                        alert("solo puedes seleccionar 12 elementos");
-                        $(this).prop("checked",false);
-                    }
-                    //alert(cadena);
-                    $('#MaterialSelect').val(cadena);
-                   // alert("seleccionados: "+contadorFormatos);
-                    
-                        
+        if (contadorFormatos < 1200) {
+          //alert("1");
+          if (estado) {
+            //alert("2");
+            contadorFormatos++;
+            cadena += id_Mat + "|";
+            //alert(cadena);
+          } else {
+            contadorFormatos--;
+            var arregloFormato = cadena.split("|");
+            cadena = "";
+            //alert("menos: "+(arregloFormato.length - 1));
+            for (var i = 0; i < arregloFormato.length - 1; i++) {
+              //alert(arregloFormato[i] + "!=" + id_Mat);
+              if (arregloFormato[i] != id_Mat) {
+                cadena += arregloFormato[i] + "|";
+                //alert("nueva: "+cadena);
+              }
+            }
+          }
+        } else if (!estado) {
+          contadorFormatos--;
+          $(this).prop("checked", false);
+          var arregloFormato = cadena.split("|");
+          cadena = "";
+          //alert("menos: "+(arregloFormato.length - 1));
+          for (var i = 0; i < arregloFormato.length - 1; i++) {
+            //alert(arregloFormato[i] + "!=" + id_Mat);
+            if (arregloFormato[i] != id_Mat) {
+              cadena += arregloFormato[i] + "|";
+              //alert("nueva: "+cadena);
+            }
+          }
+        } else {
+          alert("solo puedes seleccionar 12 elementos");
+          $(this).prop("checked", false);
+        }
+        //alert(cadena);
+        $("#MaterialSelect").val(cadena);
+        // alert("seleccionados: "+contadorFormatos);
+      });
+
+      $.ajax({
+        type: "GET",
+        url: "../Modelo/tutorados.php",
+        success: function (dato) {
+          $("#tbody_Tutorados").append(dato);
+
+          $("#tabla_Tutorados .filters_Tutorados th").each(function () {
+            var title = $("#tabla_Tutorados thead th")
+              .eq($(this).index())
+              .text();
+            if (title != "") {
+              $(this).html(
+                '<input class="inpTutorados" type="text" placeholder="Buscar" />'
+              );
+            }
+          });
+
+          var table = $("#tabla_Tutorados").DataTable();
+
+          // Apply the search
+          table
+            .columns()
+            .eq(0)
+            .each(function (colIdx) {
+              $("input", $(".filters_Tutorados th")[colIdx]).on(
+                "keyup change",
+                function () {
+                  table.column(colIdx).search(this.value).draw();
+                }
+              );
             });
 
+          $("#tabla_Tutorados_filter").addClass("d-none");
+          var cbTutorado = $(".cbTutorado");
 
-       		$.ajax({
+          $("#tabla_Tutorados tbody").on("change", "tr", function () {
+            var bo = cbTutorado.prop("checked");
 
-            	type: 'GET',
-           		url: '../Modelo/tutorados.php',
-            	success: function(dato){
-               
-            		$("#tbody_Tutorados").append(dato); 
-
-            		$('#tabla_Tutorados .filters_Tutorados th').each( function () {
-                    	var title = $('#tabla_Tutorados thead th').eq( $(this).index() ).text();
-                    	if( title != ""){
-                    		$(this).html( '<input class="inpTutorados" type="text" placeholder="Buscar" />' );
-                    		}
-                    
-                	});
-
-
-                	var table = $('#tabla_Tutorados').DataTable();
- 
-                    // Apply the search
-                table.columns().eq( 0 ).each( function ( colIdx ) {
-                    $( 'input', $('.filters_Tutorados th')[colIdx] ).on( 'keyup change', function () {
-                       table
-                            .column( colIdx )
-                            .search( this.value )
-                            .draw();
-                    });
-                });
-
-                $("#tabla_Tutorados_filter").addClass("d-none");
-                var cbTutorado = $(".cbTutorado");
-
-             
-                $("#tabla_Tutorados tbody").on('change','tr', function(){
-
-                		var bo = cbTutorado.prop("checked");
-
-                		
-                            var idA = $(this).attr("matricula");
-                            var fin = "SI";
-                        
-                    });
-
- 
-               }
-             });//fin $.get y .done externos
-
-        	
-
-    
-
-	});
-</script>
+            var idA = $(this).attr("matricula");
+            var fin = "SI";
+          });
+        },
+      }); //fin $.get y .done externos
+    });
+  </script>
 </html>

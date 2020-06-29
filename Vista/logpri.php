@@ -65,7 +65,7 @@
     		var tipoUser = $("#tipoUser").val();
     		var user = $("#user").val();
     		var pass = $("#pass").val();
-    		alert("tipo:|"+tipoUser+ "| user: "+user+" pass: "+pass);
+    		//alert("tipo:|"+tipoUser+ "| user: "+user+" pass: "+pass);
 
     		if(tipoUser == "Seleccione usuario")
     		{
@@ -83,8 +83,9 @@
     				},
     				success: function(dato){
     		//			alert("AQUII1");
-    					alert(dato);
-                        $("#h22").text(dato);
+    					//alert(dato);
+                        //$("#h22").text(dato);
+                        //alert(dato);
 
     					var dt = dato.trim();
     					//alert(dt);

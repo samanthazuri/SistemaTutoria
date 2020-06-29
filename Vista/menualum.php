@@ -49,9 +49,9 @@ session_start();
         <a  class="nav-link dropdown-toggle" data-toggle = "dropdown" role="button" arian-haspopup="true" aria-expanded ="false">Test a responder</a>
           <div class="dropdown-menu">
             <div class="dropdown-divider"></div>
-              <a id="habestu" class="dropdown-item" href="#">Habilidades de estudio</a>
+              <!--<a id="habestu" class="dropdown-item" href="#">Habilidades de estudio</a>-->
               <a id="autoestima" class="dropdown-item" href="#" data-toggle ="modal" data-target="#modal_NuevoSC">Test de autoestima</a>
-              <a id="entrevista" class="dropdown-item" data-toggle="modal" data-target="#modal_NuevoProveedor" href="#">Formato de entrevista</a>
+              <!--<a id="entrevista" class="dropdown-item" data-toggle="modal" data-target="#modal_NuevoProveedor" href="#">Inventaario sobre estilos de aprendizaje </a>-->
             <div class="dropdown-divider"></div>
           </div>
       </li>
@@ -117,9 +117,9 @@ session_start();
   
   $(function(){
 
-    $("#entrevista").click(function(){
+    /*$("#entrevista").click(function(){
       location.href="../Vista/entrevista.php";
-    });
+    });*/
 
     $("#autoestima").click(function(){
       location.href="../Vista/autoestima.html";

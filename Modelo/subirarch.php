@@ -1,3 +1,23 @@
+ <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+   <meta name="viewport" content="with=device-width,initial-scale=1,shrink-to-fit=no">
+  <title>FODA</title>
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/estilos.css">
+   </head>
+
+     <body>
+ <div style="text-align: left;">
+    <a href="../Vista/menualum.php" class="btn btn-danger">
+      Regresar<i class="fas fa-arrow-left"></i> </a
+    ><button type="button" class="editar btn btn-primary">
+      <i class="fa fa-pencil-square-o"></i>
+    </button>
+	</div>
+</body>
+</html>
 <?php
 	require("conexion1.php");
 	session_start();

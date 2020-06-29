@@ -33,7 +33,7 @@
         <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Actividades complementarias</a>
         <div  class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a id="actividades" class="dropdown-item" href="../Vista/extraescolares.html">Alta</a>
-             <a id="seguimiento" class="dropdown-item" href="">Inscritos</a>
+             <a id="seguimiento" class="dropdown-item" href="alumnosActividades.html">Inscritos</a>
         </div>
       </li>
 
